@@ -1,0 +1,85 @@
+/*header/NAVBAR*/
+.logoNavBar {
+    width: 40px;
+    border-radius: 5rem;
+}
+.navbar {
+    background-color: #0D1321;
+}
+
+.TitleNavbar {
+    color:white;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+a.TitleNavbar:hover {
+    color:white;
+    text-decoration: none;
+}
+
+.Accueil {
+    color:white;
+    text-decoration: none;
+    margin-right: 2rem;
+}
+a.Accueil:hover {
+    color:white;
+    text-decoration: none;
+}
+
+.SeConnecter {
+    color:white;
+    text-decoration: none;
+}
+a.SeConnecter:hover {
+    color:white;
+    text-decoration: none;
+}
+.nav1 {
+    margin-left: 2rem;
+}
+
+.nav2 {
+    margin-right: 2rem;
+}
+
+/*FIN HEADER*/
+
+
+/*Image d'accueil*/
+.PhotoAccueil {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 480px) {
+    .PhotoAccueil {
+        width: 100%;
+    }
+}
+
+.titreBienvenue {
+    margin: 0;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    width: auto;
+    padding-top: 27rem;
+}
+
+figure {
+    position: relative;
+}
+
+figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    width: 80%;
+    max-width: 500px;
+}
+/*Image d'accueil*/
