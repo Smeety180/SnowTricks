@@ -1,3 +1,4 @@
+                                  /*PAGE D'ACCUEIL*/
 /*header/NAVBAR*/
 .logoNavBar {
     width: 40px;
@@ -62,11 +63,12 @@ a.SeConnecter:hover {
 
 .titreBienvenue {
     margin: 0;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     text-align: center;
     width: auto;
-    padding-top: 27rem;
+    padding-top: 31rem;
+    color: #0D1321;
 }
 
 figure {
@@ -82,4 +84,18 @@ figcaption {
     width: 80%;
     max-width: 500px;
 }
+
 /*Image d'accueil*/
+
+/* Les cartes de figures */
+
+.listFigure{
+  padding-top: 9rem;
+  text-align: center;
+  font-size: 50px;
+    font-family: 'Frijole', cursive;
+  }
+
+/* Les cartes de figures */
+
+                                  /*PAGE D'ACCUEIL*/
