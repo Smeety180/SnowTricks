@@ -71,6 +71,14 @@ a.SeConnecter:hover {
     color: #0D1321;
 }
 
+@media screen and (max-width: 600px) {
+    .titreBienvenue {
+      font-size: 2rem;
+      margin-top: 5rem;
+        padding-top: 9rem;
+  }
+}
+
 figure {
     position: relative;
 }
@@ -96,6 +104,27 @@ figcaption {
     font-family: 'Frijole', cursive;
   }
 
+
+.card-title1 {
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Frijole', cursive;
+}
+
+.cardsFigure {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
 /* Les cartes de figures */
 
                                   /*PAGE D'ACCUEIL*/
