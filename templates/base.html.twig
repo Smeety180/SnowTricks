@@ -5,6 +5,12 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+<!--Ajout d'un favicon-->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('image/Favicon.png') }}"/>
+    <!---->
+    <!--Ajout de flocons de neige -->
+    <script type="text/javascript" src="https://click123.ca/dist/js/snow.js"></script>
+    <!---->
 </head>
 <body>
 {% block body %}{% endblock %}

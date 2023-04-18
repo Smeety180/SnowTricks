@@ -62,20 +62,21 @@ a.SeConnecter:hover {
 }
 
 .titreBienvenue {
-    margin: 0;
-    font-size: 3rem;
+    margin: -226px;
+    font-size: 5rem;
     font-weight: bold;
     text-align: center;
     width: auto;
-    padding-top: 31rem;
+    padding-top: 37rem;
     color: #0D1321;
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 600px) {
     .titreBienvenue {
       font-size: 2rem;
       margin-top: 5rem;
-        padding-top: 9rem;
+        padding-top: 0;
   }
 }
 
@@ -126,5 +127,6 @@ figcaption {
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 /* Les cartes de figures */
+
 
                                   /*PAGE D'ACCUEIL*/
