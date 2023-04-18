@@ -5,19 +5,25 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles_index.css') }}">
 <!--Ajout d'un favicon-->
     <link rel="shortcut icon" type="image/png" href="{{ asset('image/Favicon.png') }}"/>
     <!---->
-    <!--Ajout de flocons de neige -->
-    <script type="text/javascript" src="https://click123.ca/dist/js/snow.js"></script>
+    <!--Ajout de flocons de neige à décommenter pour activer -->
+{#    <script type="text/javascript" src="https://click123.ca/dist/js/snow.js"></script>  #}
     <!---->
 </head>
 <body>
-{% block body %}{% endblock %}
 {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+
 {% block header %}
     {% include "_header.html.twig"%}
 {% endblock %}
 
+{% block body %}{% endblock %}
+
+{% block footer %}
+    {% include "_footer.html.twig"%}
+{% endblock %}
 </body>
 </html>

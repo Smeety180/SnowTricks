@@ -128,5 +128,109 @@ figcaption {
 }
 /* Les cartes de figures */
 
+/* Footer */
+
+.footer{
+background-color: #0D1321;
+width: 100%;
+padding: 12rem;
+margin: 10rem 0 0 0;
+}
+@media screen and  (max-width: 1100px) and (max-width: 1820px) {
+  .footer {
+      padding-right: 1rem;
+  }
+
+}
+
+.footerCopy {
+    background-color:#D9D9D9;
+    width: 100%;
+    margin: 0;
+    padding: 3rem;
+}
+
+.copyright {
+    text-align: center;
+}
+
+.photoFooter {
+    width: 10rem;
+    border-radius: 20rem;
+    margin-left: -15rem;
+}
+@media screen and (max-width: 1820px) {
+  .photoFooter {
+  }
+}
+
+.titreFooter {
+    display: flex;
+    justify-content: space-between;
+    color:white;
+}
+@media screen and (max-width: 1100px) {
+    .titreFooter {
+        flex-direction: column;
+    }
+}
+
+.accueilFooter {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+a.accueilFooter:hover {
+  color:white;
+  text-decoration: none;
+}
+
+.titreNav {
+    display:grid;
+}
+
+.inscriptionFooter {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+a.inscriptionFooter:hover {
+  color:white;
+  text-decoration: none;
+}
+
+.emailFooter {
+    border-radius: 7px;
+    border: none;
+    text-align: center;
+}
+
+.newsletterForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletterForm .btnSinscrire {
+    width: fit-content;
+    margin: 5px auto auto;
+}
+
+.btnSinscrire {
+    border: none;
+    border-radius: 11px;
+}
+
+.instaFooter {
+    width: 40px;
+}
+
+.tweetFooter {
+    width: 40px;
+}
+
+.whatsappFooter {
+    width: 40px;
+}
+/* Footer */
 
                                   /*PAGE D'ACCUEIL*/

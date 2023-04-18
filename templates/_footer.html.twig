@@ -1,0 +1,49 @@
+{% block footer %}
+
+<footer class="footer">
+
+    <div class="container titreFooter">
+        <img class="photoFooter" src="{{ asset('image/Logo.png') }}">
+       <div >
+           <h1 >NAVIGATION</h1>
+           <div class="titreNav">
+
+               <a class="accueilFooter" href="#">➢  Accueil</a>
+               <a class="inscriptionFooter" href="#">➢  Page d'inscription</a>
+
+           </div>
+
+       </div>
+       <div>
+           <div>
+               <h1 style="text-align: center">NEWSLETTERS</h1>
+               <div class="newsletterForm">
+                   <input type="email" class="emailFooter"
+                          size="45" placeholder="Veuillez entrez votre adresse e-mail" required>
+                   <button class="btnSinscrire"
+                           type="button">
+                       S’inscrire
+                   </button>
+               </div>
+           </div>
+
+
+       </div>
+       <div>
+           <h1 >CONTACT</h1>
+           <div class="container reseauxFooter">
+               <a href="https://www.instagram.com/" target="_blank"><img class="instaFooter"  src="{{ asset('image/instagram copie.png') }}"></a>
+               <a href="https://twitter.com/?lang=fr" target="_blank"><img class="tweetFooter"  src="{{ asset('image/twitter copie.png') }}"></a>
+              <a href="https://www.whatsapp.com/?lang=fr" target="_blank"><img class="whatsappFooter" src="{{ asset('image/whatsapp copie.png') }}"></a>
+           </div>
+       </div>
+   </div>
+</footer>
+
+<footer class="footerCopy">
+<h5 class="copyright"> Copyright © - 2022 - Tous droit réservés.  Mentions Légales/Conditions générale de vente</h5>
+</footer>
+
+
+
+{% endblock %}

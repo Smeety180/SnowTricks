@@ -19,5 +19,3 @@ C
 composer.json,3/9/3957b91a0d8450cea0115cfd5af69eac90d75897
 A
 webpack.config.js,d/5/d5595158cc48f9bf3e51b06f6e6805a8fd2d6262
-F
-assets/styles/app.scss,a/e/aea929363b457a82916ff90ee1de00f3283c474b
