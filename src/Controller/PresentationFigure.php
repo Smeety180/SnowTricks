@@ -9,11 +9,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PresentationFigure extends AbstractController
 {
-    #[Route('/presentationfigure', name: 'app_figure')]
+    #[Route('/presentationfigure', name: 'app_presentation')]
     public function index(): Response
     {
         return $this->render('pagePresentationFigure/PresentationFigure.html.twig', [
-            'controller_name' => 'FigureController',
+            'controller_name' => 'PresentationController',
         ]);
     }
 }
