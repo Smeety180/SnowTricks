@@ -136,7 +136,7 @@ width: 100%;
 padding: 12rem;
 margin: 10rem 0 0 0;
 }
-@media screen and  (max-width: 1100px) and (max-width: 1820px) {
+@media screen and  (min-width: 1100px) and (max-width: 1820px) {
   .footer {
       padding-right: 1rem;
   }
