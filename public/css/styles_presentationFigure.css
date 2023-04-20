@@ -1,0 +1,43 @@
+/*PAGE DE PRÉSENTATION DE FIGURE*/
+
+.presentation {
+    text-align: center;
+    padding-top: 10rem;
+    font-family: 'Frijole', cursive;
+}
+
+.groupeDesc {
+    justify-content: space-between;
+    display: flex;
+    padding-top: 10rem;
+}
+
+.carousel{
+    width: 500px;
+}
+
+.titreFigure {
+    font-family: 'Frijole', cursive;
+}
+
+.textDesc {
+    font-family: 'Frijole', cursive;
+}
+
+
+.descFigure {
+    width: 30rem;
+    height: 32rem;
+    /*border: none;*/
+}
+
+.echange{
+    text-align: center;
+    padding-top: 10rem;
+}
+
+.echangeInput {
+
+}
+
+/*PAGE DE PRÉSENTATION DE FIGURE*/
