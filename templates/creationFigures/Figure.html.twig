@@ -2,6 +2,58 @@
 
 {% block body %}
 
-    <h1>Bienvenue sur la page dédiée au figures</h1>
+    <h1 class="titreCreationFigure">Page dédiée au création de figure</h1>
+    <!--Nom et groupe -->
+    <div class="container NomFigure">
+        <div>
+
+            <h2>Nom : </h2>
+            <input type="text" class="inputNom">
+
+        </div>
+
+        <div>
+
+            <h2>Groupe de la figure : </h2>
+            <input type="text" class="inputGroupe">
+
+        </div>
+
+    </div>
+
+<!--Description-->
+    <div class="container nomDesc">
+        <div>
+
+            <h2>Description : </h2>
+            <input type="text" class="inputDesc">
+
+        </div>
+
+    </div>
+    <!--Image et video-->
+
+    <div class="container imageVideo">
+        <div>
+
+            <h2>Image(s) : </h2>
+            <input type="text" class="inputImage">
+
+        </div>
+
+        <div>
+
+            <h2>Video(s) : </h2>
+            <input type="text" class="inputVideo">
+
+        </div>
+
+    </div>
+<div class="btnDivEnvoi">
+    <button class="btnEnvoi"
+            type="button">
+        Envoyer ma figure
+    </button>
+</div>
 
 {% endblock %}

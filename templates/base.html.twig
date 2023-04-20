@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+    <!--Ajouter les liens de style css-->
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/styles_index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles_creationFigure.css') }}">
 <!--Ajout d'un favicon-->
     <link rel="shortcut icon" type="image/png" href="{{ asset('image/Favicon.png') }}"/>
     <!---->
     <!--Ajout de flocons de neige à décommenter pour activer -->
-{#    <script type="text/javascript" src="https://click123.ca/dist/js/snow.js"></script>  #}
+{# <script type="text/javascript" src="https://click123.ca/dist/js/snow.js"></script>#}
     <!---->
 </head>
 <body>

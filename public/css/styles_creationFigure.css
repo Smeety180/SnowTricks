@@ -1,0 +1,80 @@
+/*PAGE CRÉATION DE FIGURE*/
+
+.titreCreationFigure {
+padding: 10rem;
+text-align:center;
+}
+
+.NomFigure {
+    justify-content: space-between;
+    display: flex;
+}
+
+.inputNom {
+    width: 20rem;
+    height: 2rem;
+    border: none;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+.inputGroupe {
+    width: 20rem;
+    height: 2rem;
+    border: none;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+.nomDesc {
+    padding-top: 8rem;
+}
+
+.inputDesc {
+    width: 81rem;
+    height: 20rem;
+    border: none;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+.imageVideo {
+    justify-content: space-between;
+    display: flex;
+    padding-top: 8rem;
+}
+
+.inputImage {
+    width: 20rem;
+    height: 2rem;
+    border: none;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+.inputVideo {
+    width: 20rem;
+    height: 2rem;
+    border: none;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+.btnDivEnvoi {
+    display: flex;
+    justify-content: center;
+    padding-top: 8rem;
+}
+.btnEnvoi {
+    border: none;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    height: 3rem;
+}
+
+/*PAGE CRÉATION DE FIGURE*/
+
+/*PAGE MODIFICATION DE FIGURE*/
+
+
+/*PAGE MODIFICATION DE FIGURE*/
