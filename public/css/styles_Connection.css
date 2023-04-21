@@ -1,0 +1,21 @@
+/*PAGE DE CONNECTION*/
+
+.seConnecter {
+    padding-top: 10rem;
+}
+
+.emailConnect {
+    margin-top:5rem;
+}
+
+.mdpOublie{
+    display: flex;
+    justify-content: space-between;
+}
+.btnSeConnecter {
+    border: none;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+/*PAGE DE CONNECTION*/
