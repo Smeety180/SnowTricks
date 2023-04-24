@@ -41,5 +41,3 @@ X
 (public/css/styles_presentationFigure.css,1/4/140cdddfe2a34f714130bbbfb93af60195489eb7
 T
 $public/css/styles_creationFigure.css,c/7/c7fd573e6924c03feada96413dc89641ec7be08a
-]
--templates/pageConnection/Connection.html.twig,d/9/d9a1e6dd5037cdc51deac471dad5dd28db09af30
