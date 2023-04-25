@@ -22,6 +22,13 @@
 
 /*PAGE D'INSCRIPTION*/
 
+.h1Inscrire {
+    padding:10rem;
+}
 
+.nomInscription {
+    display: flex;
+    justify-content: space-between;
+}
 
 /*PAGE D'INSCRIPTION*/

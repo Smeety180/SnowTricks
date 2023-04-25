@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CategorieRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
@@ -16,8 +18,13 @@ class Categorie
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[ORM\OneToOne(mappedBy: 'categorie', cascade: ['persist', 'remove'])]
-    private ?Figure $figure = null;
+    #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Figure::class, orphanRemoval: true)]
+    private Collection $figures;
+
+    public function __construct()
+    {
+        $this->figures = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -36,19 +43,32 @@ class Categorie
         return $this;
     }
 
-    public function getFigure(): ?Figure
+    /**
+     * @return Collection<int, Figure>
+     */
+    public function getFigures(): Collection
     {
-        return $this->figure;
+        return $this->figures;
     }
 
-    public function setFigure(Figure $figure): self
+    public function addFigure(Figure $figure): self
     {
-        // set the owning side of the relation if necessary
-        if ($figure->getCategorie() !== $this) {
+        if (!$this->figures->contains($figure)) {
+            $this->figures->add($figure);
             $figure->setCategorie($this);
         }
 
-        $this->figure = $figure;
+        return $this;
+    }
+
+    public function removeFigure(Figure $figure): self
+    {
+        if ($this->figures->removeElement($figure)) {
+            // set the owning side to null (unless already changed)
+            if ($figure->getCategorie() === $this) {
+                $figure->setCategorie(null);
+            }
+        }
 
         return $this;
     }

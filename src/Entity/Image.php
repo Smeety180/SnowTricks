@@ -16,7 +16,7 @@ class Image
     #[ORM\Column(length: 255)]
     private ?string $nomDeFichier = null;
 
-    #[ORM\OneToOne(inversedBy: 'image', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'images')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Figure $figure = null;
 
@@ -42,7 +42,7 @@ class Image
         return $this->figure;
     }
 
-    public function setFigure(Figure $figure): self
+    public function setFigure(?Figure $figure): self
     {
         $this->figure = $figure;
 

@@ -19,7 +19,7 @@ class Video
     #[ORM\Column(length: 255)]
     private ?string $url = null;
 
-    #[ORM\OneToOne(inversedBy: 'video', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'videos')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Figure $figure = null;
 
@@ -57,7 +57,7 @@ class Video
         return $this->figure;
     }
 
-    public function setFigure(Figure $figure): self
+    public function setFigure(?Figure $figure): self
     {
         $this->figure = $figure;
 

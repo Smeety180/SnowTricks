@@ -21,26 +21,28 @@ class Figure
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\OneToOne(mappedBy: 'figure', cascade: ['persist', 'remove'])]
-    private ?Image $image = null;
+    #[ORM\OneToMany(mappedBy: 'figure', targetEntity: Commentaire::class, orphanRemoval: true)]
+    private Collection $commentaires;
 
-    #[ORM\OneToOne(mappedBy: 'figure', cascade: ['persist', 'remove'])]
-    private ?Video $video = null;
-
-    #[ORM\OneToOne(inversedBy: 'figure', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Categorie $categorie = null;
-
-    #[ORM\OneToOne(inversedBy: 'figure', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'figures')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'figure', targetEntity: Commentaire::class, orphanRemoval: true)]
-    private Collection $commentaires;
+    #[ORM\ManyToOne(inversedBy: 'figures')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Categorie $categorie = null;
+
+    #[ORM\OneToMany(mappedBy: 'figure', targetEntity: Image::class, orphanRemoval: true)]
+    private Collection $images;
+
+    #[ORM\OneToMany(mappedBy: 'figure', targetEntity: Video::class, orphanRemoval: true)]
+    private Collection $videos;
 
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->images = new ArrayCollection();
+        $this->videos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -72,64 +74,6 @@ class Figure
         return $this;
     }
 
-    public function getImage(): ?Image
-    {
-        return $this->image;
-    }
-
-    public function setImage(Image $image): self
-    {
-        // set the owning side of the relation if necessary
-        if ($image->getFigure() !== $this) {
-            $image->setFigure($this);
-        }
-
-        $this->image = $image;
-
-        return $this;
-    }
-
-    public function getVideo(): ?Video
-    {
-        return $this->video;
-    }
-
-    public function setVideo(Video $video): self
-    {
-        // set the owning side of the relation if necessary
-        if ($video->getFigure() !== $this) {
-            $video->setFigure($this);
-        }
-
-        $this->video = $video;
-
-        return $this;
-    }
-
-    public function getCategorie(): ?Categorie
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(Categorie $categorie): self
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Commentaire>
      */
@@ -154,6 +98,90 @@ class Figure
             // set the owning side to null (unless already changed)
             if ($commentaire->getFigure() === $this) {
                 $commentaire->setFigure(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Image>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setFigure($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getFigure() === $this) {
+                $image->setFigure(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Video>
+     */
+    public function getVideos(): Collection
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Video $video): self
+    {
+        if (!$this->videos->contains($video)) {
+            $this->videos->add($video);
+            $video->setFigure($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideo(Video $video): self
+    {
+        if ($this->videos->removeElement($video)) {
+            // set the owning side to null (unless already changed)
+            if ($video->getFigure() === $this) {
+                $video->setFigure(null);
             }
         }
 
