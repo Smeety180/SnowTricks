@@ -25,21 +25,14 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('photo')
             ->add('email')
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
-            ])
+
 
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'The password fields must match.',
                 'required' => true,
-                'first_options'  => ['label' => 'Password'],
-                'second_options' => ['label' => 'Repeat Password'],
+                'first_options'  => ['label' => 'Mot de passe'],
+                'second_options' => ['label' => 'Confirmez votre mot de passe'],
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
