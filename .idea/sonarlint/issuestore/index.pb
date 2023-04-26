@@ -21,12 +21,6 @@ F
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 Z
 *templates/creationFigures/Figure.html.twig,9/9/99f0642cd84d6e3ac4b40fd5fcf64fd0508b578d
-X
-(src/Controller/ModifFigureController.php,6/3/636b4f1dd7238b69d90fcc1bb74605ca12bd10da
-m
-=templates/pagePresentationFigure/PresentationFigure.html.twig,b/8/b8954bdfb49bafbaaa5be71b9f5c22eed4d36c3d
-[
-+src/Controller/PageConnectionController.php,5/e/5eb46c5cf6f26ccd1633782b931bae70897a69df
 K
 templates/_footer.html.twig,e/7/e7d1a7c236e6415e7b1a6f490ff905623ea9b314
 E
