@@ -96,3 +96,13 @@
 }
 /*PAGE MOT DE PASSE OUBLIÉ*/
 
+/*PAGE REINITIALISATION MOT DE PASSE OUBLIÉ*/
+
+.initialiserMdp {
+    display:flex;
+    justify-content:space-between;
+    padding:10px;
+}
+
+
+/*PAGE REINITIALISATION MOT DE PASSE OUBLIÉ*/
