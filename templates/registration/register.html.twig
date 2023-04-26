@@ -7,18 +7,54 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>S'inscrire</h1>
+    <h1 class="container titreInscrire">S'inscrire</h1>
 
     {{ form_start(registrationForm) }}
-    {{ form_row(registrationForm.nom) }}
-    {{ form_row(registrationForm.prenom) }}
-    {{ form_row(registrationForm.pseudo) }}
-    {{ form_row(registrationForm.photo) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
+    <div class="container formNom">
 
-        <button type="submit" class="btn">S'inscrire</button>
+        <div class="form-group">
+            {{ form_label(registrationForm.nom) }} <!-- Ajout de l'étiquette "Nom" à l'élément de formulaire "nom" -->
+            {{ form_widget(registrationForm.nom, {'attr': {'class': 'form-control'}}) }} <!-- Ajout de la classe "form-control" à l'élément de formulaire "nom" -->
+        </div>
+
+        <div class="form-group">
+            {{ form_label(registrationForm.prenom, 'Prénom') }}
+            {{ form_widget(registrationForm.prenom, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+    </div>
+
+<div class="container utilPhoto">
+    <div class="form-group">
+        {{ form_label(registrationForm.pseudo, 'Utilisateur') }}
+        {{ form_widget(registrationForm.pseudo, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(registrationForm.photo, 'Photo') }}
+        {{ form_widget(registrationForm.photo, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+    <div class="container mailPassword">
+        <div class="form-group">
+            {{ form_label(registrationForm.email, 'Adresse e-mail') }}
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+            <button type="submit" class="btnPageInscription">S'inscrire</button>
+        </div>
+<div>
+        <div class="form-group">
+            {{ form_label(registrationForm.plainPassword.first, 'Mot de passe') }}
+            {{ form_widget(registrationForm.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(registrationForm.plainPassword.second, 'Confirmation du mot de passe') }}
+            {{ form_widget(registrationForm.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+        </div>
+</div>
+    </div>
+
+
     {{ form_end(registrationForm) }}
 {% endblock %}
