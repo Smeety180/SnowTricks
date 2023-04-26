@@ -74,3 +74,25 @@
 
 
 /*PAGE D'INSCRIPTION*/
+
+/*PAGE MOT DE PASSE OUBLIÉ*/
+
+
+.titreMdp {
+    padding-top: 10rem;
+}
+
+.divBtnMdp {
+    display:flex;
+    justify-content:center;
+
+}
+.btnMdp {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    border: none;
+    height: 40px;
+    font-size: 25px;
+}
+/*PAGE MOT DE PASSE OUBLIÉ*/
+
