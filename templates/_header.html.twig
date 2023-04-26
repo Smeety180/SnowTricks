@@ -3,16 +3,16 @@
 <nav class="navbar">
     <div class="nav1">
         <img class="logoNavBar" src="{{ asset('image/Logo.png') }}">
-        <a id="TitleNavbar1" class="TitleNavbar">Snow Tricks</a>
+        <a id="TitleNavbar1" class="TitleNavbar" href="/home">Snow Tricks</a>
     </div>
     <div class="nav2">
         <a class="Accueil" href="/home">Accueil</a>
-        <a class="Accueil" href="creationFigures/Figure.html.twig">Ajouter une figure</a>
-        <a class="Accueil" href="pageInscription/Inscription.html.twig">S'inscrire </a>
+        <a class="Accueil" href="/figure">Ajouter une figure</a>
+        <a class="Accueil" href="/inscription">S'inscrire </a>
         {% if is_granted('ROLE_USER') %}
             <a class="SeConnecter" href="#">Se déconnecter</a>
         {% else %}
-            <a class="SeConnecter" href="#">Se connecter</a>
+            <a class="SeConnecter" href="/connection">Se connecter</a>
         {% endif %}
     </div>
 </nav>

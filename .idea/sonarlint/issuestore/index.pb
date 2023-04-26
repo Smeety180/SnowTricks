@@ -19,11 +19,5 @@ F
 assets/styles/app.scss,a/e/aea929363b457a82916ff90ee1de00f3283c474b
 9
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-Z
-*templates/creationFigures/Figure.html.twig,9/9/99f0642cd84d6e3ac4b40fd5fcf64fd0508b578d
-K
-templates/_footer.html.twig,e/7/e7d1a7c236e6415e7b1a6f490ff905623ea9b314
-E
-public/css/styles.css,c/c/ccef9d2f34fd679a4eef74f96b59af18a3b918cc
 X
 (public/css/styles_presentationFigure.css,1/4/140cdddfe2a34f714130bbbfb93af60195489eb7

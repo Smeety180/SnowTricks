@@ -32,8 +32,10 @@
 
     <div class="form-group">
         {{ form_label(registrationForm.photo, 'Photo') }}
-        {{ form_widget(registrationForm.photo, {'attr': {'class': 'form-control'}}) }}
+        {{ form_widget(registrationForm.photo, {'attr': {'class': 'form-control', 'accept': 'image/*'}}) }}
+
     </div>
+
 </div>
 
     <div class="container mailPassword">
