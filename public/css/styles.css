@@ -77,13 +77,75 @@ a.SeConnecter:hover {
     white-space: nowrap;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
+    /* ajustez les propriétés en conséquence pour les écrans de taille inférieure à 767px */
     .titreBienvenue {
-        font-size: 2rem;
-        margin-top: 5rem;
-        padding-top: 0;
+        margin: -226px;
+        font-size: 4rem;
+        font-weight: bold;
+        text-align: center;
+        width: auto;
+        padding-top: 32rem;
+        color: #0D1321;
+        white-space: nowrap;
     }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* ajustez les propriétés en conséquence pour les écrans entre 768px et 1023px */
+    .titreBienvenue {
+        margin: -226px;
+        font-size: 4rem;
+        font-weight: bold;
+        text-align: center;
+        width: auto;
+        padding-top: 18rem;
+        color: #0D1321;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+    /* ajustez les propriétés en conséquence pour les écrans entre 1024px et 1279px */
+    .titreBienvenue {
+        margin: -226px;
+        font-size: 5rem;
+        font-weight: bold;
+        text-align: center;
+        width: auto;
+        padding-top: 33rem;
+        color: #0D1321;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (min-width: 2200px) {
+    /* ajustez les propriétés en conséquence pour les écrans de taille supérieure ou égale à 1280px */
+    .titreBienvenue {
+        margin: -226px;
+        font-size: 5rem;
+        font-weight: bold;
+        text-align: center;
+        width: auto;
+        padding-top: 33rem;
+        color: #0D1321;
+        white-space: nowrap;
+    }
+}
+@media screen and (min-width: 1279px) and (max-width: 2200px) {
+    /* ajustez les propriétés en conséquence pour les écrans entre 1024px et 1279px */
+    .titreBienvenue {
+        margin: -226px;
+        font-size: 5rem;
+        font-weight: bold;
+        text-align: center;
+        width: auto;
+        padding-top: 30rem;
+        color: #0D1321;
+        white-space: nowrap;
+    }
+}
+
 
 figure {
     position: relative;
