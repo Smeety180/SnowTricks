@@ -11,17 +11,18 @@ class CategorieFixture extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        //        Test premiere categorie de figure fixture
+        $grabs = new Categorie();
+        $grabs->setNom('Grabs');
+        $manager->persist($grabs);
+        $this->addReference('grabs', $grabs);
 
-        for ($i = 0; $i <=20; $i++) {
+        $rotations = new Categorie();
+        $rotations->setNom('Rotations');
+        $manager->persist($rotations);
+        $this->addReference('rotations', $rotations);
 
-            $categorie = new Categorie();
-            $categorie->setName('mute');
-            $categorie->setName('sad');
-            $this->addReference('mute', $categorie);
-
-            $manager->persist($categorie);
-
-        }
+        //        Test premiere categorie de figure fixture
 
         $manager->flush();
     }

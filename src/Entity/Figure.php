@@ -32,10 +32,10 @@ class Figure
     #[ORM\JoinColumn(nullable: false)]
     private ?Categorie $categorie = null;
 
-    #[ORM\OneToMany(mappedBy: 'figure', targetEntity: Image::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'figure', targetEntity: Image::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
     private Collection $images;
 
-    #[ORM\OneToMany(mappedBy: 'figure', targetEntity: Video::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'figure', targetEntity: Video::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
     private Collection $videos;
 
     public function __construct()
