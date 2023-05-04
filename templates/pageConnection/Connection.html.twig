@@ -7,15 +7,16 @@
 
 
  <div>
-
+  {{ form_start(form) }}
   <div class="container emailConnect">
    <h2>Email : </h2>
+   {{ form_widget(form.email) }}
    <input type="text" class="inputNom">
   </div>
 
-
   <div class="container emailConnect">
    <h2>Mot de passe : </h2>
+   {{ form_widget(form.password) }}
    <input type="text" class="inputNom">
    <div>
     <br>

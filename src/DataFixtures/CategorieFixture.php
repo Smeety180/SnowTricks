@@ -22,7 +22,7 @@ class CategorieFixture extends Fixture
         $manager->persist($rotations);
         $this->addReference('rotations', $rotations);
 
-        //        Test premiere categorie de figure fixture
+        //        Test deuxième categorie de figure fixture
 
         $manager->flush();
     }

@@ -30,7 +30,18 @@ class UserFixtures extends Fixture
         $manager->persist($admin);
         $this->addReference('admin', $admin);
 
-//        Test premier utilisateur
+//        Test deuxième utilisateur
+
+        $toto = new User();
+        $toto->setPrenom('Toto');
+        $toto->setNom('Nineta');
+        $toto->setPseudo('TotoNineta');
+        $toto->setPhoto('toto.png');
+        $toto->setEmail('toto@gmail.com');
+        $toto->setPassword($this->hasher->hashPassword($toto, 'toto'));
+        $toto->setRoles(['ROLE_UTILISATEUR']);
+        $manager->persist($toto);
+        $this->addReference('utilisateur', $toto);
 
         $manager->flush();
     }

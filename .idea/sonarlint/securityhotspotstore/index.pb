@@ -75,3 +75,7 @@ Y
 +src/Controller/PageConnectionController.php,5/e/5eb46c5cf6f26ccd1633782b931bae70897a69df
 M
 config/packages/security.yaml,c/5/c5f941b4d4e9404f23935164fabdd261abb68e93
+U
+%src/Controller/PresentationFigure.php,9/8/98fa9975a760fd38058e53371603426e6d2f5f85
+Y
+)templates/registration/register.html.twig,1/c/1c8c7e669830383faba8ed6ab3baf68e465540f5
