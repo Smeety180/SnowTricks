@@ -17,9 +17,9 @@ class CommentaireFixture extends Fixture
         $datemsg = DateTime::createFromFormat('d-m-Y H:i:s', '04-05-2023 12:00:00');
         $com1->setDateMsg($datemsg);
         $com1->setContenu('il était une fois.....');
-        $this->addReference('mute', $com1);
         $toto = $this->getReference('utilisateur');
         $com1->setUser($toto);
+        $this->addReference('mute', $com1);
 
         $manager->persist($com1); // Ajoutez cette ligne pour persister l'objet Commentaire
         $manager->flush();
