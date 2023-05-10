@@ -11,8 +11,6 @@ C
 tests/bootstrap.php,3/2/326979242ce2c18a934ad123c59abf3a9753ba46
 <
 package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
-=
-composer.json,3/9/3957b91a0d8450cea0115cfd5af69eac90d75897
 A
 webpack.config.js,d/5/d5595158cc48f9bf3e51b06f6e6805a8fd2d6262
 F
@@ -37,8 +35,6 @@ G
 public/index.php,0/e/0e61f67641b441bb3ee38e903c594d99cafa14b4
 P
  config/packages/translation.yaml,c/7/c7b3dfc088a7c85e5aee83fc03d12b4572887bcb
-c
-3templates/registration/confirmation_email.html.twig,f/6/f6f0bd1d1720e6ce3329b02b7359f48dfc424393
 b
 2templates/modificationFigure/ModifFigure.html.twig,3/b/3bb2e71091ff838fd581f6e03cdd536c627904f0
 ]
@@ -51,8 +47,6 @@ S
 #src/Controller/FigureController.php,6/3/635de38fbdb52f5a96af6a2789ef150eaba3843d
 Q
 !src/Controller/HomeController.php,a/d/ad8b439416d1e02614f47c5b471c7c4e587dca82
-D
-config/services.yaml,8/7/87042d1f46b57381244d70e7a42feeb7710727dc
 B
 config/routes.yaml,b/a/baef02989dedf0ec859f7bce087a69f29bef2b72
 4
@@ -69,16 +63,12 @@ X
 (src/Controller/ModifFigureController.php,6/3/636b4f1dd7238b69d90fcc1bb74605ca12bd10da
 T
 $public/css/styles_creationFigure.css,c/7/c7fd573e6924c03feada96413dc89641ec7be08a
-Y
-)src/Controller/RegistrationController.php,b/6/b6a5dce1eac6107738aa6c9b363b605aa2315b2c
 [
 +src/Controller/PageConnectionController.php,5/e/5eb46c5cf6f26ccd1633782b931bae70897a69df
 M
 config/packages/security.yaml,c/5/c5f941b4d4e9404f23935164fabdd261abb68e93
 U
 %src/Controller/PresentationFigure.php,9/8/98fa9975a760fd38058e53371603426e6d2f5f85
-Y
-)templates/registration/register.html.twig,1/c/1c8c7e669830383faba8ed6ab3baf68e465540f5
 P
  public/css/styles_Connection.css,1/e/1edcc52f32574dec7da0d01779f1aabc52aacdf2
 E

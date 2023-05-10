@@ -33,13 +33,26 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
+
+            $uploadedPhoto = $user->getPhoto(); // Accéder à la propriété 'photo'
+
+            if ($uploadedPhoto) {
+                // Déplacer le fichier vers le répertoire de stockage
+                try {
+                    $uploadedPhoto->move(
+                        $this->getParameter('uploads_directory'),
+                        $uploadedPhoto->getClientOriginalName()
+                    );
+                } catch (FileException $e) {
+                    // Gérer les exceptions liées au déplacement du fichier
+                }
+            }
 
             $entityManager->persist($user);
             $entityManager->flush();

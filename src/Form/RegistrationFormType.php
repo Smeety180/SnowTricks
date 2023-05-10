@@ -25,10 +25,12 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Utilisateur',
             ])
             ->add('photo', FileType::class, [
-                'label' => 'Photo',
+                'label' => 'Photo(PDF file)',
                 'mapped' => false,
                 'required' => false,
-            ])
+                ],
+            )
+
             ->add('email')
 
 
