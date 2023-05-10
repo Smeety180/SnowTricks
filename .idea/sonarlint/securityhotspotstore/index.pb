@@ -91,7 +91,3 @@ K
 templates/_header.html.twig,b/8/b88b9f1b1e0f7b46ee11bde918addd3d6327dd7e
 J
 src/Entity/Commentaire.php,2/3/237b02d0deb563d7832f745a6283cc5b44c021cd
-S
-#src/DataFixtures/FigureFixtures.php,8/1/81461e2e033513496b31965a58a5336d5aa40001
-U
-%src/DataFixtures/CategorieFixture.php,7/4/7400a05c6601bb24adc725ec5220a9758a613a44
