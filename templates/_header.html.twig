@@ -3,17 +3,17 @@
 <nav class="navbar">
     <div class="nav1">
         <img class="logoNavBar" src="{{ asset('image/Logo.png') }}">
-        <a id="TitleNavbar1" class="TitleNavbar" href="/home">Snow Tricks</a>
+        <a id="TitleNavbar1" class="TitleNavbar" href="{{ path('app_home') }}">Snow Tricks</a>
     </div>
     <div class="nav2">
-        <a class="Accueil" href="/home">Accueil</a>
-        <a class="Accueil" href="/modification">Modifier ma figure</a>
-        <a class="Accueil" href="/figure">Ajouter une figure</a>
-        <a class="Accueil" href="/inscription">S'inscrire </a>
+        <a class="Accueil" href="{{ path('app_home') }}">Accueil</a>
+        <a class="Accueil" href="{{ path('app_modif') }}">Modifier ma figure</a>
+        <a class="Accueil" href="{{ path('app_figure') }}">Ajouter une figure</a>
+        <a class="Accueil" href="{{ path('app_register') }}">S'inscrire </a>
         {% if is_granted('ROLE_USER') %}
-            <a class="SeConnecter" href="#">Se déconnecter</a>
+            <a class="SeConnecter" href="{{ path('app_logout') }}">Se déconnecter</a>
         {% else %}
-            <a class="SeConnecter" href="/connection">Se connecter</a>
+            <a class="SeConnecter" href="{{ path('app_login') }}">Se connecter</a>
         {% endif %}
     </div>
 </nav>

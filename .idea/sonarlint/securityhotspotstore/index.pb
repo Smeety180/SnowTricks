@@ -19,8 +19,6 @@ F
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 X
 (public/css/styles_presentationFigure.css,1/4/140cdddfe2a34f714130bbbfb93af60195489eb7
-K
-config/packages/mailer.yaml,1/5/157f49740d485f16c276482e7b9e0f180b8ccd9f
 ;
 bin/phpunit,8/6/86698a9324c014ff7c7b15ce18e19027a589b9e2
 ;
@@ -37,26 +35,12 @@ P
  config/packages/translation.yaml,c/7/c7b3dfc088a7c85e5aee83fc03d12b4572887bcb
 b
 2templates/modificationFigure/ModifFigure.html.twig,3/b/3bb2e71091ff838fd581f6e03cdd536c627904f0
-Q
-!src/Controller/HomeController.php,a/d/ad8b439416d1e02614f47c5b471c7c4e587dca82
-]
--src/Controller/MotdePasseOublieController.php,9/a/9ab13e8a3e5dee52b16a38634fabf1bf10ad3286
-W
-'templates/mdpOublie/MdpOublie.html.twig,6/3/63898cd883400234346433f9aa3ddd5daa080cc0
-]
--src/Controller/ReinitialisationController.php,d/8/d8799c88e5935074a505d7a532f1ba49ae58082f
 h
 8templates/ReinitialisationMdp/Reinitialisation.html.twig,e/f/ef2fe9e28fe96edd479145a52d4559b74b7a39a8
-S
-#src/Controller/FigureController.php,6/3/635de38fbdb52f5a96af6a2789ef150eaba3843d
 X
 (src/Controller/ModifFigureController.php,6/3/636b4f1dd7238b69d90fcc1bb74605ca12bd10da
 m
 =templates/pagePresentationFigure/PresentationFigure.html.twig,b/8/b8954bdfb49bafbaaa5be71b9f5c22eed4d36c3d
-4
-.env,3/c/3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
-K
-templates/_footer.html.twig,e/7/e7d1a7c236e6415e7b1a6f490ff905623ea9b314
 K
 tests/CategorieUnitTest.php,7/e/7e91a637f35e947204c73b0b8140a0ccb06476b8
 T
@@ -69,12 +53,8 @@ P
  public/css/styles_Connection.css,1/e/1edcc52f32574dec7da0d01779f1aabc52aacdf2
 E
 src/Entity/Figure.php,1/a/1a46660ead7918cd68721249e258b296870f5183
-H
-templates/base.html.twig,f/f/ffb3f1cfd73fdec1f0c80c63d0b5bbc1fff22022
 N
 templates/home/index.html.twig,9/e/9edb3d1e95dfc79e011bc28bcd374833bdbae38a
-K
-templates/_header.html.twig,b/8/b88b9f1b1e0f7b46ee11bde918addd3d6327dd7e
 J
 src/Entity/Commentaire.php,2/3/237b02d0deb563d7832f745a6283cc5b44c021cd
 S
