@@ -39,8 +39,6 @@ h
 8templates/ReinitialisationMdp/Reinitialisation.html.twig,e/f/ef2fe9e28fe96edd479145a52d4559b74b7a39a8
 K
 tests/CategorieUnitTest.php,7/e/7e91a637f35e947204c73b0b8140a0ccb06476b8
-m
-=templates/pagePresentationFigure/PresentationFigure.html.twig,b/8/b8954bdfb49bafbaaa5be71b9f5c22eed4d36c3d
 X
 (src/Controller/ModifFigureController.php,6/3/636b4f1dd7238b69d90fcc1bb74605ca12bd10da
 T
