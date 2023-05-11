@@ -47,8 +47,6 @@ S
 #src/Controller/FigureController.php,6/3/635de38fbdb52f5a96af6a2789ef150eaba3843d
 Q
 !src/Controller/HomeController.php,a/d/ad8b439416d1e02614f47c5b471c7c4e587dca82
-B
-config/routes.yaml,b/a/baef02989dedf0ec859f7bce087a69f29bef2b72
 4
 .env,3/c/3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
 K
@@ -63,8 +61,6 @@ X
 (src/Controller/ModifFigureController.php,6/3/636b4f1dd7238b69d90fcc1bb74605ca12bd10da
 T
 $public/css/styles_creationFigure.css,c/7/c7fd573e6924c03feada96413dc89641ec7be08a
-[
-+src/Controller/PageConnectionController.php,5/e/5eb46c5cf6f26ccd1633782b931bae70897a69df
 M
 config/packages/security.yaml,c/5/c5f941b4d4e9404f23935164fabdd261abb68e93
 U

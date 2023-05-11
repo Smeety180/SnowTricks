@@ -15,6 +15,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class RegistrationController extends AbstractController
 {
@@ -26,13 +27,15 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/inscription', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $photoFile */
+            $uploadedFile = $form->get('photo')->getData();
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -42,16 +45,22 @@ class RegistrationController extends AbstractController
 
             $uploadedPhoto = $user->getPhoto(); // Accéder à la propriété 'photo'
 
-            if ($uploadedPhoto) {
+            if ($uploadedFile) {
+                $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
                 // Déplacer le fichier vers le répertoire de stockage
                 try {
-                    $uploadedPhoto->move(
+                    $uploadedFile->move(
                         $this->getParameter('uploads_directory'),
-                        $uploadedPhoto->getClientOriginalName()
+                        $newFilename
                     );
                 } catch (FileException $e) {
                     // Gérer les exceptions liées au déplacement du fichier
                 }
+                // Assigne le nouveau nom de fichier à la propriété 'photo' de l'utilisateur
+                $user->setPhoto($newFilename);
             }
 
             $entityManager->persist($user);

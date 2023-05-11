@@ -5,6 +5,18 @@
 
  <h1 class="container seConnecter"> Se connecter</h1>
 
+ <form method="post" action="{{ path('app_login') }}" class="container emailConnect">
+  {{ form_row(form.email) }}
+  {{ form_row(form.password) }}
+
+  <br>
+  <div class="mdpOublie">
+   <a href="/MotdePasseOublie" style="color: black">Mot de passe oublié</a>
+   <div>
+    <button class="btnSeConnecter" type="submit">Se connecter</button>
+   </div>
+  </div>
+ </form>
 
  <div>
 

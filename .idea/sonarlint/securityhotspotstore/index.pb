@@ -53,8 +53,6 @@ X
 (src/Controller/ModifFigureController.php,6/3/636b4f1dd7238b69d90fcc1bb74605ca12bd10da
 m
 =templates/pagePresentationFigure/PresentationFigure.html.twig,b/8/b8954bdfb49bafbaaa5be71b9f5c22eed4d36c3d
-B
-config/routes.yaml,b/a/baef02989dedf0ec859f7bce087a69f29bef2b72
 4
 .env,3/c/3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
 K
@@ -63,8 +61,6 @@ K
 tests/CategorieUnitTest.php,7/e/7e91a637f35e947204c73b0b8140a0ccb06476b8
 T
 $public/css/styles_creationFigure.css,c/7/c7fd573e6924c03feada96413dc89641ec7be08a
-[
-+src/Controller/PageConnectionController.php,5/e/5eb46c5cf6f26ccd1633782b931bae70897a69df
 M
 config/packages/security.yaml,c/5/c5f941b4d4e9404f23935164fabdd261abb68e93
 U
