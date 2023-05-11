@@ -41,7 +41,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $pseudo = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $photo = null;
+    private ?string $photo = 'LoginSnowboard.png';
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Commentaire::class, orphanRemoval: true)]
     private Collection $commentaires;
