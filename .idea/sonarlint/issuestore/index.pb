@@ -39,8 +39,6 @@ X
 (src/Controller/ModifFigureController.php,6/3/636b4f1dd7238b69d90fcc1bb74605ca12bd10da
 T
 $public/css/styles_creationFigure.css,c/7/c7fd573e6924c03feada96413dc89641ec7be08a
-M
-config/packages/security.yaml,c/5/c5f941b4d4e9404f23935164fabdd261abb68e93
 U
 %src/Controller/PresentationFigure.php,9/8/98fa9975a760fd38058e53371603426e6d2f5f85
 P
