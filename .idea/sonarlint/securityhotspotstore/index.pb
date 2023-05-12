@@ -39,14 +39,8 @@ K
 tests/CategorieUnitTest.php,7/e/7e91a637f35e947204c73b0b8140a0ccb06476b8
 T
 $public/css/styles_creationFigure.css,c/7/c7fd573e6924c03feada96413dc89641ec7be08a
-U
-%src/Controller/PresentationFigure.php,9/8/98fa9975a760fd38058e53371603426e6d2f5f85
 P
  public/css/styles_Connection.css,1/e/1edcc52f32574dec7da0d01779f1aabc52aacdf2
-E
-src/Entity/Figure.php,1/a/1a46660ead7918cd68721249e258b296870f5183
-N
-templates/home/index.html.twig,9/e/9edb3d1e95dfc79e011bc28bcd374833bdbae38a
 J
 src/Entity/Commentaire.php,2/3/237b02d0deb563d7832f745a6283cc5b44c021cd
 S
@@ -103,8 +97,6 @@ L
 .templates/reset_password/check_email.html.twig,c/1/c148b52954f384c8adc825095128458d79ea156f
 K
 templates/_footer.html.twig,e/7/e7d1a7c236e6415e7b1a6f490ff905623ea9b314
-E
-public/css/styles.css,c/c/ccef9d2f34fd679a4eef74f96b59af18a3b918cc
 Z
 *templates/reset_password/request.html.twig,7/a/7a4ca05d5d41b7f1827d48546ccd11b0a1b24153
 B
