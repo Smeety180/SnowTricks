@@ -3,8 +3,6 @@ U
 %src/Controller/SecurityController.php,7/c/7cc876ecdb4df676c79a6188e9f3ac45e5079434
 E
 public/css/styles.css,c/c/ccef9d2f34fd679a4eef74f96b59af18a3b918cc
-B
-config/routes.yaml,b/a/baef02989dedf0ec859f7bce087a69f29bef2b72
 R
 "templates/security/login.html.twig,8/9/89d5f9595fc54c90b0c2626c3e5e07e23a679864
 Y
@@ -15,5 +13,3 @@ S
 #src/Form/ChangePasswordFormType.php,d/9/d9d0afd626c91ccd8a844318e8255c0e6341146b
 H
 templates/base.html.twig,f/f/ffb3f1cfd73fdec1f0c80c63d0b5bbc1fff22022
-D
-config/services.yaml,8/7/87042d1f46b57381244d70e7a42feeb7710727dc

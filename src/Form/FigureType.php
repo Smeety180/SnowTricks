@@ -31,6 +31,7 @@ class FigureType extends AbstractType
             ])
             ->add('videos', UrlType::class, [
                 'required' => false,
+                'mapped' => false,
             ]);
 
     }
