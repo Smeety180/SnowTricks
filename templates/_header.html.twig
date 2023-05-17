@@ -7,8 +7,8 @@
     </div>
     <div class="nav2">
         <a class="Accueil" href="{{ path('app_home') }}">Accueil</a>
-        <a class="Accueil" href="{{ path('app_modif') }}">Modifier ma figure</a>
-        <a class="Accueil" href="{{ path('app_figure') }}">Ajouter une figure</a>
+        <a class="Accueil" href="{{ path('app_edit') }}">Modifier ma figure</a>
+        <a class="Accueil" href="{{ path('app_figure_create') }}">Ajouter une figure</a>
         <a class="Accueil" href="{{ path('app_register') }}">S'inscrire </a>
         {% if is_granted('ROLE_USER') %}
             <a class="SeConnecter" href="{{ path('app_logout') }}">Se déconnecter</a>

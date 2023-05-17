@@ -1,19 +1,18 @@
 <?php
 
-
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ModifFigureController extends AbstractController
+class SitemapController extends AbstractController
 {
-    #[Route('/figure/edit', name: 'app_edit')]
+    #[Route('/sitemap.xml', name: 'app_sitemap')]
     public function index(): Response
     {
-        return $this->render('modificationFigure/edit.html.twig', [
-            'controller_name' => 'EditFigureController',
+        return $this->render('sitemap/index.html.twig', [
+            'controller_name' => 'SitemapController',
         ]);
     }
 }
