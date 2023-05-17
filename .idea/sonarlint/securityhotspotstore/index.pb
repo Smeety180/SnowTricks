@@ -5,8 +5,6 @@ H
 templates/base.html.twig,f/f/ffb3f1cfd73fdec1f0c80c63d0b5bbc1fff22022
 E
 public/css/styles.css,c/c/ccef9d2f34fd679a4eef74f96b59af18a3b918cc
-Y
-)src/Controller/RegistrationController.php,b/6/b6a5dce1eac6107738aa6c9b363b605aa2315b2c
 R
 "templates/security/login.html.twig,8/9/89d5f9595fc54c90b0c2626c3e5e07e23a679864
 ]

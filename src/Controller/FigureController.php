@@ -24,7 +24,7 @@ class FigureController extends AbstractController
     }
 
     #[Route('/figure/create', name: 'app_figure_create', methods: ['GET', 'POST'])]
-    public function create(Request $request): Response
+    public function create(Request $request, FigureRepository $figureRepository): Response
     {
         $figure = new Figure();
 
@@ -32,11 +32,17 @@ class FigureController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($figure);
-            $entityManager->flush();
+            $figure->setUser($this->getUser());
 
-            return $this->redirectToRoute('app_figure');
+            //Gestion de l'upload d'image
+            $figure->addImage($form->get('image')->getData());
+
+            //Gestion de l'upload de vidéo
+            $figure->addVideo($form->get('video')->getData());
+
+
+            $figureRepository->save($figure, true);
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('creationFigures/create.html.twig', [
@@ -71,10 +77,5 @@ class FigureController extends AbstractController
         }
 
         return $this->redirectToRoute('app_figure');
-    }
-
-    private function getDoctrine()
-    {
-
     }
 }

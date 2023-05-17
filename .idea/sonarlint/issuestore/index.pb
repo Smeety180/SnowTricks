@@ -5,8 +5,6 @@ E
 public/css/styles.css,c/c/ccef9d2f34fd679a4eef74f96b59af18a3b918cc
 R
 "templates/security/login.html.twig,8/9/89d5f9595fc54c90b0c2626c3e5e07e23a679864
-Y
-)src/Controller/RegistrationController.php,b/6/b6a5dce1eac6107738aa6c9b363b605aa2315b2c
 ]
 -src/Controller/Admin/FigureCrudController.php,8/4/84da260d3cc8923d360f52eb559c790bf023d135
 S
