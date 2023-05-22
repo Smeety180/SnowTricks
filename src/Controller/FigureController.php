@@ -34,12 +34,24 @@ class FigureController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $figure->setUser($this->getUser());
 
-            //Gestion de l'upload d'image
-            $figure->addImage($form->get('image')->getData());
+            // Gestion de l'upload d'image
+            $images = $form->get('images')->getData();
+            foreach ($images as $image) {
+                $imageName = md5(uniqid()) . '.' . $image->guessExtension();
+                $image->move(
+                    $this->getParameter('images_directory'),
+                );
+                $figure->addImage($image);
+            }
+/*
+            // Gestion de l'upload de vidéo
+            $videos = $form->get('videos')->getData();
+            foreach ($videos as $video) {
+                // Logique pour traiter l'upload de vidéo
+                // ...
 
-            //Gestion de l'upload de vidéo
-            $figure->addVideo($form->get('video')->getData());
-
+                $figure->addVideo($video);
+            }*/
 
             $figureRepository->save($figure, true);
             return $this->redirectToRoute('app_home');
@@ -49,6 +61,7 @@ class FigureController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
 
     #[Route("/figure/edit/{id}", name: "app_figure_edit", methods: ["GET", "POST"])]
     public function edit(Request $request, Figure $figure): Response

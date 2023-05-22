@@ -129,7 +129,7 @@ class Figure
     }
 
     /**
-     * @return Collection<int, Image>
+     * @return Image[]
      */
     public function getImages(): Collection
     {
@@ -186,6 +186,10 @@ class Figure
         }
 
         return $this;
+    }
+
+    public function getMainImage(): Image|null {
+        return $this->getImages()->get(0);
     }
 
 }

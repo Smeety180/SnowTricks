@@ -24,15 +24,16 @@ class FigureType extends AbstractType
                 'choice_label' => 'nom'
             ])
             ->add('description', TextareaType::class)
-            ->add('images', FileType::class, [
-                'multiple' => true,
-                'required' => false,
-                'mapped' => false,
-            ])
-            ->add('videos', UrlType::class, [
-                'required' => false,
-                'mapped' => false,
-            ]);
+//            ->add('images', FileType::class, [
+//                'multiple' => true,
+//                'required' => false,
+//                'mapped' => false,
+//            ])
+//            ->add('videos', UrlType::class, [
+//                'required' => false,
+//                'mapped' => false,
+//            ])
+        ;
 
     }
 

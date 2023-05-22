@@ -16,67 +16,20 @@
 
     <!--Cards-->
     <div  class="container cardsFigure" style=" padding-top: 8rem;" >
-        <a href="{{ path('app_presentation') }}" style="color: black; text-decoration: none">
-        <div  class="card" style="width: 18rem;" >
 
-                <img src="{{ asset('uploads/Figure 2.jpg') }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title1 no-link-style">Mute</h5>
+        {% for figure in figures %}
+            <a href="{{ path('app_presentation', {'id': figure.id}) }}" style="color: black; text-decoration: none">
+                <div  class="card" style="width: 18rem;" >
+
+                    <img src="{{ asset('uploads/' ~ (figure.mainImage ? figure.mainImage.nomDeFichier : '')) }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title1 no-link-style">
+                            {{ figure.nom }}
+                        </h5>
+                    </div>
                 </div>
-        </div>
-        </a>
-        <div class="card" style="width: 18rem;">
-            <img src="{{ asset('uploads/Figure 2.jpg') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 href="#" class="card-title1">Mute</h5>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="{{ asset('uploads/Figure 2.jpg') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 href="#" class="card-title1">Mute</h5>
-            </div>
-        </div><div class="card" style="width: 18rem;">
-            <img src="{{ asset('uploads/Figure 2.jpg') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 href="#" class="card-title1">Mute</h5>
-            </div>
-        </div><div class="card" style="width: 18rem;">
-            <img src="{{ asset('uploads/Figure 2.jpg') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 href="#" class="card-title1">Mute</h5>
-            </div>
-        </div><div class="card" style="width: 18rem;">
-            <img src="{{ asset('uploads/Figure 2.jpg') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 href="#" class="card-title1">Mute</h5>
-            </div>
-        </div><div class="card" style="width: 18rem;">
-            <img src="{{ asset('uploads/Figure 2.jpg') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 href="#" class="card-title1">Mute</h5>
-            </div>
-        </div><div class="card" style="width: 18rem;">
-            <img src="{{ asset('uploads/Figure 2.jpg') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 href="#" class="card-title1">Mute</h5>
-            </div>
-        </div><div class="card" style="width: 18rem;">
-            <img src="{{ asset('uploads/Figure 2.jpg') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 href="#" class="card-title1">Mute</h5>
-            </div>
-        </div><div class="card" style="width: 18rem;">
-            <img src="{{ asset('uploads/Figure 2.jpg') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 href="#" class="card-title1">Mute</h5>
-            </div>
-        </div><div class="card" style="width: 18rem;">
-            <img src="{{ asset('uploads/Figure 2.jpg') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 href="#" class="card-title1">Mute</h5>
-            </div>
-        </div>
+            </a>
+        {% endfor %}
 
     </div>
 {% endblock %}
