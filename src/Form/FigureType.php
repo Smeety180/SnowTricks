@@ -6,6 +6,7 @@ use App\Entity\Categorie;
 use App\Entity\Figure;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,11 +25,22 @@ class FigureType extends AbstractType
                 'choice_label' => 'nom'
             ])
             ->add('description', TextareaType::class)
-//            ->add('images', FileType::class, [
-//                'multiple' => true,
-//                'required' => false,
-//                'mapped' => false,
-//            ])
+        ->add('images', CollectionType::class, [
+            'entry_type' => FileType::class,
+            'allow_add' => true,
+            'by_reference' => false,
+        ])
+            ->add('image', FileType::class, [
+                'multiple' => true,
+                'mapped' => false, // Ne pas mapper cette propriété à l'entité
+                'required' => false, // Rendre le champ facultatif
+                'attr' => [
+                    'accept' => 'image/*', // Filtre de type d'image
+                    'multiple' => 'multiple', // Permet de sélectionner plusieurs fichiers
+                ],
+            ]);
+
+
 //            ->add('videos', UrlType::class, [
 //                'required' => false,
 //                'mapped' => false,

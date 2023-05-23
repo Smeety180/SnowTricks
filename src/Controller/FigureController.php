@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Figure;
+use App\Entity\Image;
 use App\Form\FigureType;
 use App\Repository\FigureRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 class FigureController extends AbstractController
 {
@@ -40,18 +42,25 @@ class FigureController extends AbstractController
                 $imageName = md5(uniqid()) . '.' . $image->guessExtension();
                 $image->move(
                     $this->getParameter('images_directory'),
-                );
-                $figure->addImage($image);
-            }
-/*
-            // Gestion de l'upload de vidéo
-            $videos = $form->get('videos')->getData();
-            foreach ($videos as $video) {
-                // Logique pour traiter l'upload de vidéo
-                // ...
+                    $imageName
 
-                $figure->addVideo($video);
-            }*/
+                );var_dump(get_class_methods($image));
+
+
+                $imageEntity = new Image();
+                $imageEntity->setNomDeFichier($image->getClientOriginalName());
+                $figure->addImage($imageEntity);
+            }
+
+            /*
+                        // Gestion de l'upload de vidéo
+                        $videos = $form->get('videos')->getData();
+                        foreach ($videos as $video) {
+                            // Logique pour traiter l'upload de vidéo
+                            // ...
+
+                            $figure->addVideo($video);
+                        }*/
 
             $figureRepository->save($figure, true);
             return $this->redirectToRoute('app_home');
