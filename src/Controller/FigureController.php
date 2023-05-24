@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 
 class FigureController extends AbstractController
@@ -26,7 +28,7 @@ class FigureController extends AbstractController
     }
 
     #[Route('/figure/create', name: 'app_figure_create', methods: ['GET', 'POST'])]
-    public function create(Request $request, FigureRepository $figureRepository): Response
+    public function create(Request $request, FigureRepository $figureRepository, EntityManagerInterface $entityManager): Response
     {
         $figure = new Figure();
 
@@ -43,14 +45,17 @@ class FigureController extends AbstractController
                 $image->move(
                     $this->getParameter('images_directory'),
                     $imageName
-
-                );var_dump(get_class_methods($image));
-
+                );
 
                 $imageEntity = new Image();
-                $imageEntity->setNomDeFichier($image->getClientOriginalName());
+                $imageEntity->setNomDeFichier($imageName); // Utilisez le nom généré pour l'image
                 $figure->addImage($imageEntity);
+
+                $entityManager->persist($imageEntity); // Utilisez $entityManager au lieu de persist()
             }
+
+            $entityManager->flush(); // Déplacez flush() en dehors de la boucle foreach
+
 
             /*
                         // Gestion de l'upload de vidéo

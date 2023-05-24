@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Repository\ImageRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
+
+
 #[ORM\Entity(repositoryClass: ImageRepository::class)]
 class Image
 {
@@ -16,9 +19,12 @@ class Image
     #[ORM\Column(length: 255)]
     private ?string $nomDeFichier = null;
 
-    #[ORM\ManyToOne(inversedBy: 'images')]
+
+    #[ORM\ManyToOne(targetEntity: Figure::class, inversedBy: 'images', cascade: ["persist"])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Figure $figure = null;
+
+
 
     public function getId(): ?int
     {

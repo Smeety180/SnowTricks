@@ -25,12 +25,7 @@ class FigureType extends AbstractType
                 'choice_label' => 'nom'
             ])
             ->add('description', TextareaType::class)
-        ->add('images', CollectionType::class, [
-            'entry_type' => FileType::class,
-            'allow_add' => true,
-            'by_reference' => false,
-        ])
-            ->add('image', FileType::class, [
+            ->add('images', FileType::class, [
                 'multiple' => true,
                 'mapped' => false, // Ne pas mapper cette propriété à l'entité
                 'required' => false, // Rendre le champ facultatif
