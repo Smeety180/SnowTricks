@@ -6,6 +6,7 @@ use App\Entity\Figure;
 use App\Entity\Image;
 use App\Form\FigureType;
 use App\Repository\FigureRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,6 +32,7 @@ class FigureController extends AbstractController
     public function create(Request $request, FigureRepository $figureRepository, EntityManagerInterface $entityManager): Response
     {
         $figure = new Figure();
+        $figure->setImages(new ArrayCollection());
 
         $form = $this->createForm(FigureType::class, $figure);
         $form->handleRequest($request);
@@ -105,4 +107,5 @@ class FigureController extends AbstractController
 
         return $this->redirectToRoute('app_figure');
     }
+
 }

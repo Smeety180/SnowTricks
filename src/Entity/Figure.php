@@ -192,4 +192,12 @@ class Figure
         return $this->getImages()->get(0);
     }
 
+    public function setImages(ArrayCollection $images): self
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+
 }
