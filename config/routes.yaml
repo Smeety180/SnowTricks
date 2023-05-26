@@ -9,8 +9,9 @@ app_figure_edit:
     controller: App\Controller\FigureController::edit
     methods: [GET, POST]
 
-app_figure_confirm_delete:
-    path: '/figure/delete/confirm/{id}'
-    controller: App\Controller\FigureController::Delete
-    methods: ['GET']
+app_figure_delete:
+    path: /figure/delete/{id}
+    controller: App\Controller\FigureController::delete
+    methods: [GET, DELETE]
+
 

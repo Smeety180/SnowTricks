@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Figure;
 use App\Entity\Image;
 use App\Form\FigureType;
+use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\FigureRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -128,16 +129,26 @@ class FigureController extends AbstractController
 
 
 
-    #[Route("/figure/delete/{id}", name: "app_figure_delete", methods: ["DELETE"])]
+    #[Route("/figure/delete/{id}", name: "app_figure_delete", methods: ["POST", "DELETE"])]
     public function delete(Request $request, Figure $figure): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $figure->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($figure);
-            $entityManager->flush();
-        }
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($figure);
+        $entityManager->flush();
 
         return $this->redirectToRoute('app_home');
+    }
+
+    private $doctrine;
+
+    public function __construct(ManagerRegistry $doctrine)
+    {
+        $this->doctrine = $doctrine;
+    }
+
+    private function getDoctrine()
+    {
+     return $this->doctrine;
     }
 
 }

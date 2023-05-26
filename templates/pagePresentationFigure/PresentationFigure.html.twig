@@ -80,7 +80,7 @@
 
     <div>
         {% if is_granted('ROLE_USER') and figure is not null and figure.user == app.user %}
-            <a class="" href="{{ path('app_figure_edit', {'id': figure.id}) }}" style="color: black; text-decoration: none">Supprimer 🗑️</a>
+            <a class="" href="{{ path('app_figure_delete', {'id': figure.id}) }}" methods="POST" style="color: black; text-decoration: none">Supprimer 🗑️</a>
         {% endif %}
     </div>
 </div>
