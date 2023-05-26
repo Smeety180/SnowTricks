@@ -187,10 +187,18 @@ class Figure
 
         return $this;
     }
+    public function getMainImage(): ?string
+    {
+        $images = $this->getImages();
 
-    public function getMainImage(): Image|null {
-        return $this->getImages()->get(0);
+        if ($images instanceof Collection && !$images->isEmpty()) {
+            $mainImage = $images->first();
+            return 'uploads/images/' . $mainImage->getNomDeFichier();
+        }
+
+        return 'uploads/images/pexels-nikita.jpg'; // Chemin de l'image par défaut
     }
+
 
     public function setImages(ArrayCollection $images): self
     {

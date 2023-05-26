@@ -21,7 +21,18 @@
             <a href="{{ path('app_presentation', {'id': figure.id}) }}" style="color: black; text-decoration: none">
                 <div  class="card" style="width: 18rem;" >
 
-                    <img src="{{ asset('uploads/images/' ~ (figure.mainImage ? figure.mainImage.nomDeFichier : '')) }}" class="card-img-top" alt="...">
+                    {% if figure.images is not empty %}
+                        {% for image in figure.images %}
+                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                <img src="{{ asset('uploads/images/' ~ image.nomDeFichier) }}" class="card-img-top" alt="...">
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="carousel-item active">
+                            <img src="{{ asset('uploads/images/pexels-nikita.jpg') }}" class="card-img-top" alt="Default Image">
+                        </div>
+                    {% endif %}
+
 
                     <div class="card-body">
                         <h5 class="card-title1 no-link-style">

@@ -1,4 +1,3 @@
-{% block header %}
 <!-- Barre de navigation -->
 <nav class="navbar">
     <div class="nav1">
@@ -7,9 +6,11 @@
     </div>
     <div class="nav2">
         <a class="Accueil" href="{{ path('app_home') }}">Accueil</a>
-        <a class="Accueil" href="{{ path('app_edit') }}">Modifier ma figure</a>
+         {# {% if is_granted('ROLE_USER') and figure is not null and figure.user == app.user %}
+            <a class="Accueil" href="{{ path('app_figure_edit', {'id': figure.id}) }}">Modifier ma figure</a>
+       {% endif %}#}
         <a class="Accueil" href="{{ path('app_figure_create') }}">Ajouter une figure</a>
-        <a class="Accueil" href="{{ path('app_register') }}">S'inscrire </a>
+        <a class="Accueil" href="{{ path('app_register') }}">S'inscrire</a>
         {% if is_granted('ROLE_USER') %}
             <a class="SeConnecter" href="{{ path('app_logout') }}">Se déconnecter</a>
         {% else %}
@@ -17,4 +18,3 @@
         {% endif %}
     </div>
 </nav>
-{% endblock %}

@@ -3,3 +3,14 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+app_figure_edit:
+    path: /figure/edit/{id}
+    controller: App\Controller\FigureController::edit
+    methods: [GET, POST]
+
+app_figure_confirm_delete:
+    path: '/figure/delete/confirm/{id}'
+    controller: App\Controller\FigureController::Delete
+    methods: ['GET']
+

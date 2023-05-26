@@ -25,15 +25,30 @@
                             aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                    {% for image  in figure.images %}
+                    <div class="carousel-inner">
+                        {% if figure.images is not empty %}
+                            {% for image in figure.images %}
+                                <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                    <img src="{{ asset('uploads/images/' ~ image.nomDeFichier) }}" class="card-img-top" alt="...">
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="carousel-item active">
+                                <img src="{{ asset('uploads/images/pexels-nikita.jpg') }}" class="card-img-top" alt="Default Image">
+                            </div>
+                        {% endif %}
+                    </div>
+
+                  {#  {% for image  in figure.images %}
                         <div class="carousel-item {% if loop.first %}active{% endif %}">
-                            <img src="{{ asset('uploads/images/' ~ image.nomDeFichier) }}" class="card-img-top" alt="...">
-                            {#<div class="carousel-caption d-none d-md-block">
+                            <img src="{{ asset('uploads/images/' ~ image.nomDeFichier) }}" class="card-img-top"
+                                 alt="...">
+                            #}{# <div class="carousel-caption d-none d-md-block">
                                 <h5>First slide label</h5>
                                 <p>Some representative placeholder content for the first slide.</p>
-                            </div>#}
+                            </div> #}{#
                         </div>
-                    {% endfor %}
+                    {% endfor %}#}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                         data-bs-slide="prev">
@@ -56,6 +71,21 @@
         </div>
 
     </div>
+<div>
+    <div>
+        {% if is_granted('ROLE_USER') and figure is not null and figure.user == app.user %}
+            <a class="" href="{{ path('app_figure_edit', {'id': figure.id}) }}" style="color: black; text-decoration: none">Modifier 🖊️</a>
+        {% endif %}
+    </div>
+
+    <div>
+        {% if is_granted('ROLE_USER') and figure is not null and figure.user == app.user %}
+            <a class="" href="{{ path('app_figure_edit', {'id': figure.id}) }}" style="color: black; text-decoration: none">Supprimer 🗑️</a>
+        {% endif %}
+    </div>
+</div>
+
+
 
 
 
@@ -73,11 +103,11 @@
 
         <div>
             <div>
-                <div  class="infoUser">
-                        <div>
-                            <img class="imageUser" src="{{ asset('uploads/LoginSnowboard.png') }}">
-                            <h2 class="publicationMsg">Publié le <br> 20/04/2023</h2>
-                        </div>
+                <div class="infoUser">
+                    <div>
+                        <img class="imageUser" src="{{ asset('uploads/LoginSnowboard.png') }}">
+                        <h2 class="publicationMsg">Publié le <br> 20/04/2023</h2>
+                    </div>
                     <div>
                         <textarea class="echangeUser"></textarea>
                     </div>
@@ -85,9 +115,9 @@
             </div>
         </div>
     </div>
-    <nav aria-label="Page navigation example" >
+    <nav aria-label="Page navigation example">
         <ul class="pagination container" style="justify-content: end">
-            <li  class="page-item"><a style="color: black" class="page-link" href="#">Precedent</a></li>
+            <li class="page-item"><a style="color: black" class="page-link" href="#">Precedent</a></li>
             <li class="page-item"><a style="color: black" class="page-link" href="#">1</a></li>
             <li class="page-item"><a style="color: black" class="page-link" href="#">2</a></li>
             <li class="page-item"><a style="color: black" class="page-link" href="#">3</a></li>
