@@ -33,5 +33,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_commentaire_new') }}">Create new</a>
+    {% if figure is not null %}
+        <a href="{{ path('app_commentaire_new', {'figureId': figure.id}) }}">Create new</a>
+    {% else %}
+        <p>Aucune figure selectionée</p>
+    {% endif %}
+
+
 {% endblock %}

@@ -96,10 +96,23 @@
         <div class="btnEnvoiMsg">
             <button type="submit" class="envoyer">Envoyer</button>
         </div>
+        {% for commentaire in figure.commentaires %}
+            <div class="container">
+                <div class="infoUser">
+                    <div>
+                        <img class="imageUser" src="{{ asset('uploads/LoginSnowboard.png') }}">
+                        <h2 class="publicationMsg">Publié le<br>{{ commentaire.dateMsg ? commentaire.dateMsg|date('d/m/Y') }}</h2>
+                    </div>
+                    <div>
+                        <p class="echangeUser">{{ commentaire.contenu }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
 
     </div>
 
-    <div class="container">
+   {# <div class="container">
 
         <div>
             <div>
@@ -114,7 +127,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>#}
+
     <nav aria-label="Page navigation example">
         <ul class="pagination container" style="justify-content: end">
             <li class="page-item"><a style="color: black" class="page-link" href="#">Precedent</a></li>

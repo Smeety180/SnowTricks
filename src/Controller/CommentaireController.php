@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Commentaire;
+use App\Entity\Figure;
 use App\Form\CommentaireType;
 use App\Repository\CommentaireRepository;
+use App\Repository\FigureRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,14 +16,28 @@ use Symfony\Component\Routing\Annotation\Route;
 class CommentaireController extends AbstractController
 {
     #[Route('/', name: 'app_commentaire_index', methods: ['GET'])]
-    public function index(CommentaireRepository $commentaireRepository): Response
+    public function index(CommentaireRepository $commentaireRepository, FigureRepository $figureRepository, Request $request): Response
     {
+        $figureId = $request->get('figureId');
+        $commentaires = $commentaireRepository->findAll();
+
+        if ($figureId) {
+            $figure = $figureRepository->find($figureId);
+        } else {
+            // Gérer le cas où $figureId est null ou non spécifié
+            // par exemple, afficher une liste de toutes les figures
+            $figure = null;
+        }
+
         return $this->render('commentaire/index.html.twig', [
-            'commentaires' => $commentaireRepository->findAll(),
+            'commentaires' => $commentaires,
+            'figure' => $figure,
         ]);
     }
 
-    #[Route('/new', name: 'app_commentaire_new', methods: ['GET', 'POST'])]
+
+
+    #[Route('/new/{figureId}', name: 'app_commentaire_new', methods: ['GET', 'POST'])]
     public function new(Request $request, CommentaireRepository $commentaireRepository): Response
     {
         $commentaire = new Commentaire();
@@ -66,7 +82,7 @@ class CommentaireController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_commentaire_delete', methods: ['POST'])]
+    #[Route('/commentaire/{id}', name: 'app_commentaire_delete', methods: ['POST'])]
     public function delete(Request $request, Commentaire $commentaire, CommentaireRepository $commentaireRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$commentaire->getId(), $request->request->get('_token'))) {
@@ -75,4 +91,7 @@ class CommentaireController extends AbstractController
 
         return $this->redirectToRoute('app_commentaire_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
 }
+

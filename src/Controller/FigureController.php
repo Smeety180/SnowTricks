@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Figure;
 use App\Entity\Image;
 use App\Form\FigureType;
+use App\Repository\CommentaireRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\FigureRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -150,5 +151,18 @@ class FigureController extends AbstractController
     {
      return $this->doctrine;
     }
+
+    public function show(Figure $figure)
+    {
+        // Récupérer les commentaires liés à la figure
+        $commentaires = $figure->getCommentaires();
+
+        return $this->render('pagePresentationFigure/PresentationFigure.html.twig', [
+            'figure' => $figure,
+            'commentaires' => $commentaires,
+        ]);
+    }
+
+
 
 }

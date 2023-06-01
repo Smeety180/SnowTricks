@@ -14,4 +14,31 @@ app_figure_delete:
     controller: App\Controller\FigureController::delete
     methods: [GET, DELETE]
 
+app_commentaire_new:
+    path: /new/{figureId}
+    controller: App\Controller\CommentaireController::new
+    methods: [GET, POST]
+
+# Afficher un commentaire spécifique
+app_commentaire_show:
+    path: /commentaire/{id}
+    controller: App\Controller\CommentaireController::show
+    methods: [GET, POST]
+
+
+# Modifier un commentaire
+app_commentaire_edit:
+    path: /commentaire/{id}/edit
+    controller: App\Controller\CommentaireController::edit
+    methods: [GET, POST]
+
+
+# Supprimer un commentaire
+app_commentaire_delete:
+    path: /commentaire/{id}/delete
+    controller: App\Controller\CommentaireController::delete
+    methods: [GET, DELETE]
+
+
+
 
