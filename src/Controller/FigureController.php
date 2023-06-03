@@ -25,6 +25,7 @@ class FigureController extends AbstractController
     {
         $figures = $repository->findAll();
 
+
         return $this->render('creationFigures/Figure.html.twig', [
             'figures' => $figures,
             'figure' => null,

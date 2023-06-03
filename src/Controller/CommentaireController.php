@@ -11,13 +11,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\FormFactoryInterface;
+
 
 #[Route('/commentaire')]
 class CommentaireController extends AbstractController
 {
     #[Route('/', name: 'app_commentaire_index', methods: ['GET'])]
-    public function index(CommentaireRepository $commentaireRepository, FigureRepository $figureRepository, Request $request): Response
+    public function index(CommentaireRepository $commentaireRepository, FigureRepository $figureRepository, FormFactoryInterface $formFactoryInterface,Request $request): Response
     {
+
+
         $figureId = $request->get('figureId');
         $commentaires = $commentaireRepository->findAll();
 
@@ -29,17 +33,25 @@ class CommentaireController extends AbstractController
             $figure = null;
         }
 
-        return $this->render('commentaire/index.html.twig', [
+        $commentaire = new Commentaire();
+        $form = $this->createForm(CommentaireType::class, $commentaire);
+
+        return $this->render('pagePresentationFigure/PresentationFigure.html.twig', [
             'commentaires' => $commentaires,
             'figure' => $figure,
+            'commentaire' => $commentaire,
+            'form' => $form->createView(),
         ]);
     }
 
 
 
     #[Route('/new/{figureId}', name: 'app_commentaire_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, CommentaireRepository $commentaireRepository): Response
+    public function new(Request $request, CommentaireRepository $commentaireRepository,FigureRepository $figureRepository): Response
     {
+        $figureId = $request->get('figureId');
+        $figure = $figureRepository->find($figureId);
+
         $commentaire = new Commentaire();
         $form = $this->createForm(CommentaireType::class, $commentaire);
         $form->handleRequest($request);
@@ -50,7 +62,8 @@ class CommentaireController extends AbstractController
             return $this->redirectToRoute('app_commentaire_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('commentaire/new.html.twig', [
+        return $this->renderForm('pagePresentationFigure/PresentationFigure.html.twig', [
+            'figure' => $figure,
             'commentaire' => $commentaire,
             'form' => $form,
         ]);

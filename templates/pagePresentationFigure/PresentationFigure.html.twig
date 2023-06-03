@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
 
     <h1 class="presentation"> Présentation de la figure : {{ figure.nom }}</h1>
@@ -86,32 +87,50 @@
 </div>
 
 
+    <h1 class="echange">Échange de la communauté</h1>
+    {% if is_granted('ROLE_USER') %}
+        <!-- Formulaire de commentaire -->
+        {{ form_start(form) }}
+        <div class="container">
 
+            <div class="btnEnvoiMsg">
+                <button type="submit" class="envoyer">Envoyer</button>
+            </div>
 
+            {{ form_row(form.contenu) }}
 
-    <div class="container">
+{#            {{ form_row(form.user, { 'value': app.user.id, 'attr': { 'hidden': 'hidden' } }) }}#}
 
-        <h1 class="echange">Échange de la communauté</h1>
-        <textarea class="echangeInput"></textarea>
-        <div class="btnEnvoiMsg">
-            <button type="submit" class="envoyer">Envoyer</button>
+            {{ form_end(form) }}
         </div>
+    {% endif %}
+
+
+
         {% for commentaire in figure.commentaires %}
             <div class="container">
                 <div class="infoUser">
                     <div>
-                        <img class="imageUser" src="{{ asset('uploads/LoginSnowboard.png') }}">
-                        <h2 class="publicationMsg">Publié le<br>{{ commentaire.dateMsg ? commentaire.dateMsg|date('d/m/Y') }}</h2>
+                        {% if commentaire.user.photo is defined and commentaire.user.photo is not empty %}
+                            <img class="imageUser" src="{{ asset('uploads/' ~ commentaire.user.photo) }}">
+                        {% else %}
+                            <img class="imageUser" src="{{ asset('uploads/LoginSnowboard.png') }}">
+                        {% endif %}
+                        <h2 class="publicationMsg">Publié par {{ commentaire.user.pseudo }} le {{ commentaire.dateMsg ? commentaire.dateMsg|date('d/m/Y') }}</h2>
                     </div>
                     <div>
                         <p class="echangeUser">{{ commentaire.contenu }}</p>
                     </div>
                 </div>
             </div>
+
         {% endfor %}
 
+   </div>
+    <div class="pagination container">
+        {{ knp_pagination_render(pagination) }}
     </div>
-
+{#    {{ form_end(form) }}#}
    {# <div class="container">
 
         <div>
@@ -129,7 +148,10 @@
         </div>
     </div>#}
 
-    <nav aria-label="Page navigation example">
+
+
+
+    {#<nav aria-label="Page navigation example">
         <ul class="pagination container" style="justify-content: end">
             <li class="page-item"><a style="color: black" class="page-link" href="#">Precedent</a></li>
             <li class="page-item"><a style="color: black" class="page-link" href="#">1</a></li>
@@ -137,5 +159,5 @@
             <li class="page-item"><a style="color: black" class="page-link" href="#">3</a></li>
             <li class="page-item"><a style="color: black" class="page-link" href="#">Suivant</a></li>
         </ul>
-    </nav>
+    </nav>#}
 {% endblock %}

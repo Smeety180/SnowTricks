@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Figure;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @extends ServiceEntityRepository<Figure>
@@ -37,6 +38,16 @@ class FigureRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+
+
+    public function paginationQuery()
+    {
+        return $this->createQueryBuilder('f')
+            ->orderBy('f.id', 'ASC')
+            ->getQuery()
+            ;
     }
 
 //    /**
