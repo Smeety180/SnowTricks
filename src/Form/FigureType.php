@@ -33,13 +33,15 @@ class FigureType extends AbstractType
                     'accept' => 'image/*', // Filtre de type d'image
                     'multiple' => 'multiple', // Permet de sélectionner plusieurs fichiers
                 ],
-            ]);
+            ])
+         /*   ->add('videos', CollectionType::class, [
+                'entry_type' => TextType::class, // Remplacez VideoType par le type de formulaire pour les vidéos
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+            ])*/;
 
 
-//            ->add('videos', UrlType::class, [
-//                'required' => false,
-//                'mapped' => false,
-//            ])
         ;
 
     }

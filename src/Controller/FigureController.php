@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Figure;
 use App\Entity\Image;
+use App\Entity\Video;
 use App\Form\FigureType;
 use App\Repository\CommentaireRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -65,6 +66,24 @@ class FigureController extends AbstractController
                 $figure->addImage($imageEntity);
 
                 $entityManager->persist($imageEntity); // Utilisez $entityManager au lieu de persist()
+
+                // Gestion de l'upload de vidéo
+
+              /*  $videos = $form->get('videos')->getData();
+                foreach ($videos as $video) {
+                    $videoName = md5(uniqid()) . '.' . $video->guessExtension();
+                    $video->move(
+                        $this->getParameter('videos_directory'),
+                        $videoName
+                    );
+
+                    $videoEntity = new Video();
+                    $videoEntity->setNomDeFichier($videoName);
+                    $figure->addVideo($videoEntity);
+
+                    $entityManager->persist($videoEntity);
+                }*/
+
             }
 
             $entityManager->flush();
@@ -105,7 +124,7 @@ class FigureController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Supprimer les images supprimées dans le formulaire
+            // Gestion de l'upload d'image
             foreach ($originalImages as $image) {
                 if (false === $figure->getImages()->contains($image)) {
                     $figure->removeImage($image);
