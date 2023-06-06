@@ -19,10 +19,19 @@ class FigureType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', TextType::class)
+            ->add('nom', TextType::class,[
+                'label' => false,
+                'attr' => [
+                    'class' => 'nomDesciption',
+                ],
+                ])
             ->add('categorie', EntityType::class, [
                 'class' => Categorie::class,
-                'choice_label' => 'nom'
+                'label' => false,
+                'choice_label' => 'nom',
+                 'attr' => [
+        'class' => 'groupeDesciption',
+    ],
             ])
             ->add('description', TextareaType::class, [
                 'label' => false,
@@ -33,6 +42,7 @@ class FigureType extends AbstractType
 
 
             ->add('images', FileType::class, [
+                'label' => false,
                 'multiple' => true,
                 'mapped' => false, // Ne pas mapper cette propriété à l'entité
                 'required' => false, // Rendre le champ facultatif

@@ -67,36 +67,44 @@ a.SeConnecter:hover {
 }
 
 .titreBienvenue {
-    margin: -226px;
     font-size: 5rem;
     font-weight: bold;
-    text-align: center;
     width: auto;
-    padding-top: 37rem;
+    padding-top: 22rem;
     color: #0D1321;
     white-space: nowrap;
+    display: flex;
+    justify-content: center;
 }
+
+
 @media screen and (min-width:  960px) {
     .titreBienvenue {
-        padding-top: 18rem;
+        padding-top: 21rem;
         font-size: 5rem;
     }
 }
-@media screen and (max-width:  960px) {
+@media screen and (max-width:  960px) and (min-width: 800px) {
     .titreBienvenue {
-    padding-top: 18rem;
+    padding-top: 13rem;
         font-size: 4rem;
     }
 }
 @media screen and (max-width:  800px) {
     .titreBienvenue {
-        padding-top: 18rem;
+        padding-top: 11rem;
         font-size: 3rem;
     }
 }
 @media screen and (max-width:  700px) {
     .titreBienvenue {
-        padding-top: 17rem;
+        padding-top: 9rem;
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width: 500px) {
+    .titreBienvenue {
+        padding-top: 5rem;
         font-size: 2rem;
     }
 }
@@ -276,3 +284,27 @@ a.inscriptionFooter:hover {
 
 /* Footer */
 /*PAGE D'ACCUEIL*/
+
+
+/*Mot de passe oubliée*/
+#reset_password_request_form_email {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    border: none;
+    margin: 1rem;
+}
+
+#change_password_form_plainPassword_first {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    border: none;
+    margin:2rem;
+}
+
+#change_password_form_plainPassword_second {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    border: none;
+    margin: 0 0 0 1rem;
+}
+/*Mot de passe oubliée*/
