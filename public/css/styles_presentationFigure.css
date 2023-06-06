@@ -52,7 +52,9 @@
 
 .btnEnvoiMsg {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin: 5rem 0 0 0;
 }
 
 .envoyer {
@@ -89,9 +91,51 @@
     border-radius: 10px;
     margin-top: 10rem;
 }
+@media screen and (max-width: 1200px) {
+    .echangeUser {
+        width: 33rem;
+        height: 7rem;
+    }
+}
+@media screen and (max-width: 900px) {
+    .echangeUser {
+        width: 25rem;
+        height: 7rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .echangeUser {
+        width: 16.5rem;
+        height: 3.5rem;
+    }
+}
+
 
 .infoUser{
     display: flex;
     justify-content: space-between;
+}
+.modifFigure {
+    text-decoration: none;
+    justify-content: flex-end;
+    display: flex;
+    margin-right: 25rem;
+    color: black;
+    font-size:1.5rem;
+}
+.suprimerFigure {
+    text-decoration: none;
+    justify-content: flex-end;
+    display: flex;
+    margin-right: 25rem;
+    color: black;
+    font-size:1.5rem;
+}
+
+#commentaire_contenu {
+    border: none;
+    background-color: #D9D9D9;
+    resize: auto;
 }
 /*PAGE DE PRÉSENTATION DE FIGURE*/

@@ -29,7 +29,12 @@ text-align:center;
 .nomDesc {
     padding-top: 8rem;
 }
-
+.createDesciption {
+    border: none;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    resize: auto;
+}
 .inputDesc {
     width: 81rem;
     height: 20rem;

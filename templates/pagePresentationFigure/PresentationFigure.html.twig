@@ -18,12 +18,13 @@
             <!--Caroussel-->
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                            aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
+                    {% for loopIndex in 0..(figure.images|length - 1) %}
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ loopIndex }}"
+                                {% if loopIndex == 0 %}class="active"{% endif %}
+                                aria-current="{% if loopIndex == 0 %}true{% else %}false{% endif %}"
+                                aria-label="Slide {{ loopIndex + 1 }}"></button>
+                    {% endfor %}
+
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-inner">
@@ -64,43 +65,48 @@
             </div>
         </div>
         <!--Caroussel-->
-        <div>
+        <div class="desciptionPageFigure">
             <h1 class="textDesc"> Description :</h1>
             <div class="textDesc2">
                 {{ figure.description }}
             </div>
         </div>
     </div>
-    Video :
+    <div class="container">
+     <h1 style=" font-family: 'Frijole', cursive; ">Video : </h1>
     {% for video in figure.videos %}
         <iframe width="560" height="315" src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     {% endfor %}
+    </div>
 <div>
     <div>
         {% if is_granted('ROLE_USER') and figure is not null and figure.user == app.user %}
-            <a class="" href="{{ path('app_figure_edit', {'id': figure.id}) }}" style="color: black; text-decoration: none">Modifier 🖊️</a>
+            <a class="modifFigure" href="{{ path('app_figure_edit', {'id': figure.id}) }}" style="color: black; text-decoration: none">Modifier 🖊️</a>
         {% endif %}
     </div>
 
     <div>
         {% if is_granted('ROLE_USER') and figure is not null and figure.user == app.user %}
-            <a class="" href="{{ path('app_figure_delete', {'id': figure.id}) }}" methods="POST" style="color: black; text-decoration: none">Supprimer 🗑️</a>
+            <a class="suprimerFigure" href="{{ path('app_figure_delete', {'id': figure.id}) }}" methods="POST" style="color: black; text-decoration: none">Supprimer 🗑️</a>
         {% endif %}
     </div>
 </div>
 
 
-    <h1 class="echange">Échange de la communauté</h1>
+    <h1 class="echange" style="font-family: 'Frijole', cursive;">Échange de la communauté</h1>
     {% if is_granted('ROLE_USER') %}
         <!-- Formulaire de commentaire -->
         {{ form_start(form) }}
         <div class="container">
 
             <div class="btnEnvoiMsg">
+                {{ form_row(form.contenu) }}
                 <button type="submit" class="envoyer">Envoyer</button>
+
             </div>
 
-            {{ form_row(form.contenu) }}
+
+
 
 {#            {{ form_row(form.user, { 'value': app.user.id, 'attr': { 'hidden': 'hidden' } }) }}#}
 
@@ -132,9 +138,9 @@
 {#   </div>#}
 
 
-    <div class="count">
-        {{ pagination.getTotalItemCount }}
-    </div>
+{#    <div class="count">
+        {{ pagination.getTotalItemCount }} Commentaires
+    </div>#}
     <table>
         {# table body #}
         {% for commentaire in pagination %}
@@ -156,7 +162,7 @@
         {% endfor %}
     </table>
     {# display navigation #}
-    <div class="navigation">
+    <div class="container navigation" >
         {{ knp_pagination_render(pagination) }}
     </div>
 

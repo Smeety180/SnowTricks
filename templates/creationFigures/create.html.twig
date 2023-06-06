@@ -32,12 +32,13 @@
             <h2>Image(s) :</h2>
             {{ form_row(form.images, {'attr': {'class': 'form-control', 'accept': 'image/*'}}) }}
         </div>
+        <div class="">
+            <h2>Vidéo :</h2>
+            {{ form_row(form.videos, {'attr': {'class': 'form-control'}}) }}
+        </div>
         </div>
 
-  <div class="container">
-        <h2>Vidéo :</h2>
-        {{ form_row(form.videos, {'attr': {'class': 'form-control'}}) }}
-    </div>
+
 
     <div class="btnDivEnvoi">
         <button class="btnEnvoi" type="submit">Envoyer ma figure</button>

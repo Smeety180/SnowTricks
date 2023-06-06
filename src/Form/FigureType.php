@@ -24,7 +24,14 @@ class FigureType extends AbstractType
                 'class' => Categorie::class,
                 'choice_label' => 'nom'
             ])
-            ->add('description', TextareaType::class)
+            ->add('description', TextareaType::class, [
+                'label' => false,
+                'attr' => [
+                    'class' => 'createDesciption',
+                ],
+            ])
+
+
             ->add('images', FileType::class, [
                 'multiple' => true,
                 'mapped' => false, // Ne pas mapper cette propriété à l'entité
@@ -34,7 +41,7 @@ class FigureType extends AbstractType
                     'multiple' => 'multiple', // Permet de sélectionner plusieurs fichiers
                 ],
             ])
-            ->add('videos', TextType::class, ['mapped' => false,]);
+            ->add('videos', TextType::class, ['mapped' => false, 'label' => false,]);
         ;
 
     }

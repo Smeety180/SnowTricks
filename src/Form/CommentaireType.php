@@ -21,22 +21,27 @@ class CommentaireType extends AbstractType
     {
         $builder
             ->add('contenu', TextareaType::class, [
-                'label' => 'Commentaire'
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Écrivez votre commentaire ici...',
+                ],
             ])
-/*
-            ->add('dateMsg', DateTimeType::class, [
-                'label' => 'Date du commentaire',
-            ])
-            ->add('user', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'pseudo', // Remplacez 'username' par la propriété de l'utilisateur que vous souhaitez afficher
-            ])
-            ->add('figure', EntityType::class, [
-                'class' => Figure::class,
-                'choice_label' => 'nom', // Remplacez 'name' par la propriété de Figure que vous souhaitez afficher
-            ])*/
+
+
+            /*
+                        ->add('dateMsg', DateTimeType::class, [
+                            'label' => 'Date du commentaire',
+                        ])
+                        ->add('user', EntityType::class, [
+                            'class' => User::class,
+                            'choice_label' => 'pseudo', // Remplacez 'username' par la propriété de l'utilisateur que vous souhaitez afficher
+                        ])
+                        ->add('figure', EntityType::class, [
+                            'class' => Figure::class,
+                            'choice_label' => 'nom', // Remplacez 'name' par la propriété de Figure que vous souhaitez afficher
+                        ])*/
         ;
-        
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void
