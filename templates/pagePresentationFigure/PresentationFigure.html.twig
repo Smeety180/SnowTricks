@@ -70,8 +70,11 @@
                 {{ figure.description }}
             </div>
         </div>
-
     </div>
+    Video :
+    {% for video in figure.videos %}
+        <iframe width="560" height="315" src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    {% endfor %}
 <div>
     <div>
         {% if is_granted('ROLE_USER') and figure is not null and figure.user == app.user %}
@@ -107,7 +110,34 @@
 
 
 
-        {% for commentaire in figure.commentaires %}
+{#        {% for commentaire in figure.commentaires %}#}
+{#            <div class="container">#}
+{#                <div class="infoUser">#}
+{#                    <div>#}
+{#                        {% if commentaire.user.photo is defined and commentaire.user.photo is not empty %}#}
+{#                            <img class="imageUser" src="{{ asset('uploads/' ~ commentaire.user.photo) }}">#}
+{#                        {% else %}#}
+{#                            <img class="imageUser" src="{{ asset('uploads/LoginSnowboard.png') }}">#}
+{#                        {% endif %}#}
+{#                        <h2 class="publicationMsg">Publié par {{ commentaire.user.pseudo }} le {{ commentaire.dateMsg ? commentaire.dateMsg|date('d/m/Y') }}</h2>#}
+{#                    </div>#}
+{#                    <div>#}
+{#                        <p class="echangeUser">{{ commentaire.contenu }}</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+
+{#        {% endfor %}#}
+
+{#   </div>#}
+
+
+    <div class="count">
+        {{ pagination.getTotalItemCount }}
+    </div>
+    <table>
+        {# table body #}
+        {% for commentaire in pagination %}
             <div class="container">
                 <div class="infoUser">
                     <div>
@@ -123,13 +153,14 @@
                     </div>
                 </div>
             </div>
-
         {% endfor %}
-
-   </div>
-    <div class="pagination container">
+    </table>
+    {# display navigation #}
+    <div class="navigation">
         {{ knp_pagination_render(pagination) }}
     </div>
+
+
 {#    {{ form_end(form) }}#}
    {# <div class="container">
 

@@ -7,6 +7,8 @@ use App\Entity\Image;
 use App\Entity\Video;
 use App\Form\FigureType;
 use App\Repository\CommentaireRepository;
+use App\Repository\ImageRepository;
+use App\Repository\VideoRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\FigureRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -17,11 +19,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 
 
-
 class FigureController extends AbstractController
 {
-    #[Route("/figure", name:"app_figure")]
-
+    #[Route("/figure", name: "app_figure")]
     public function index(FigureRepository $repository): Response
     {
         $figures = $repository->findAll();
@@ -47,57 +47,13 @@ class FigureController extends AbstractController
 
             // Gestion de l'upload d'image
             $images = $form->get('images')->getData();
-            if (empty($images)) {
-                // Aucune image téléchargée, définir une image par défaut
-                $defaultImageName = 'pexels-nikita.jpg'; // Nom de l'image par défaut
-                $defaultImage = new Image();
-                $defaultImage->setNomDeFichier($defaultImageName);
-                $figure->addImage($defaultImage);
-            } else {
-                foreach ($images as $image) {
-                $imageName = md5(uniqid()) . '.' . $image->guessExtension();
-                $image->move(
-                    $this->getParameter('images_directory'),
-                    $imageName
-               ); }
+            $this->uploadImages($images, $figure);
 
-                $imageEntity = new Image();
-                $imageEntity->setNomDeFichier($imageName); // Utilisez le nom généré pour l'image
-                $figure->addImage($imageEntity);
-
-                $entityManager->persist($imageEntity); // Utilisez $entityManager au lieu de persist()
-
-                // Gestion de l'upload de vidéo
-
-              /*  $videos = $form->get('videos')->getData();
-                foreach ($videos as $video) {
-                    $videoName = md5(uniqid()) . '.' . $video->guessExtension();
-                    $video->move(
-                        $this->getParameter('videos_directory'),
-                        $videoName
-                    );
-
-                    $videoEntity = new Video();
-                    $videoEntity->setNomDeFichier($videoName);
-                    $figure->addVideo($videoEntity);
-
-                    $entityManager->persist($videoEntity);
-                }*/
-
+            // Gestion de l'upload de vidéo
+            $videoUrl = $form->get('videos')->getData();
+            if (!empty($videoUrl)) {
+                $this->uploadVideos($videoUrl, $figure);
             }
-
-            $entityManager->flush();
-
-
-            /*
-                        // Gestion de l'upload de vidéo
-                        $videos = $form->get('videos')->getData();
-                        foreach ($videos as $video) {
-                            // Logique pour traiter l'upload de vidéo
-                            // ...
-
-                            $figure->addVideo($video);
-                        }*/
 
             $figureRepository->save($figure, true);
             return $this->redirectToRoute('app_home');
@@ -110,31 +66,32 @@ class FigureController extends AbstractController
 
 
     #[Route("/figure/edit/{id}", name: "app_figure_edit", methods: ["GET", "POST"])]
-    public function edit(Request $request, $id, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, $id, EntityManagerInterface $entityManager, ImageRepository $imageRepository, VideoRepository $videoRepository): Response
     {
         $figure = $entityManager->getRepository(Figure::class)->find($id);
-
-        // Récupérer les images originales de la figure
-        $originalImages = new ArrayCollection();
-        foreach ($figure->getImages() as $image) {
-            $originalImages->add($image);
-        }
 
         $form = $this->createForm(FigureType::class, $figure);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Gestion de l'upload d'image
-            foreach ($originalImages as $image) {
-                if (false === $figure->getImages()->contains($image)) {
-                    $figure->removeImage($image);
-                    $entityManager->remove($image);
-                }
+            //Supprimer toutes les images déjà rattachées à la figure
+            foreach ($figure->getImages() as $image) {
+                $imageRepository->remove($image);
             }
 
-            // Mettre à jour les relations entre les images et la figure
-            foreach ($figure->getImages() as $image) {
-                $image->setFigure($figure);
+            //Supprimer toutes les vidéos déjà rattachées à la figure
+            foreach ($figure->getVideos() as $video) {
+                $videoRepository->remove($video);
+            }
+
+            // Gestion de l'upload d'image
+            $images = $form->get('images')->getData();
+            $this->uploadImages($images, $figure);
+
+            // Gestion de l'upload de vidéo
+            $videoUrl = $form->get('videos')->getData();
+            if (!empty($videoUrl)) {
+                $this->uploadVideos($videoUrl, $figure);
             }
 
             $entityManager->flush();
@@ -148,7 +105,35 @@ class FigureController extends AbstractController
         ]);
     }
 
+    private function uploadImages($images, $figure)
+    {
+        if (empty($images)) {
+            // Aucune image téléchargée, définir une image par défaut
+            $defaultImageName = 'pexels-nikita.jpg'; // Nom de l'image par défaut
+            $defaultImage = new Image();
+            $defaultImage->setNomDeFichier($defaultImageName);
+            $figure->addImage($defaultImage);
+        } else {
+            foreach ($images as $image) {
+                $imageName = md5(uniqid()) . '.' . $image->guessExtension();
+                $image->move(
+                    $this->getParameter('images_directory'),
+                    $imageName
+                );
 
+                $imageEntity = new Image();
+                $imageEntity->setNomDeFichier($imageName); // Utilisez le nom généré pour l'image
+                $figure->addImage($imageEntity);
+            }
+        }
+    }
+
+    private function uploadVideos($videoUrl, $figure)
+    {
+        $videoEntity = new Video();
+        $videoEntity->setUrl($videoUrl);
+        $figure->addVideo($videoEntity);
+    }
 
     #[Route("/figure/delete/{id}", name: "app_figure_delete", methods: ["POST", "DELETE"])]
     public function delete(Request $request, Figure $figure): Response
@@ -169,7 +154,7 @@ class FigureController extends AbstractController
 
     private function getDoctrine()
     {
-     return $this->doctrine;
+        return $this->doctrine;
     }
 
     public function show(Figure $figure)
@@ -182,7 +167,6 @@ class FigureController extends AbstractController
             'commentaires' => $commentaires,
         ]);
     }
-
 
 
 }

@@ -45,6 +45,7 @@ class FigureRepository extends ServiceEntityRepository
     public function paginationQuery()
     {
         return $this->createQueryBuilder('f')
+            ->leftJoin('f.commentaires', 'c')
             ->orderBy('f.id', 'ASC')
             ->getQuery()
             ;

@@ -34,14 +34,7 @@ class FigureType extends AbstractType
                     'multiple' => 'multiple', // Permet de sélectionner plusieurs fichiers
                 ],
             ])
-         /*   ->add('videos', CollectionType::class, [
-                'entry_type' => TextType::class, // Remplacez VideoType par le type de formulaire pour les vidéos
-                'allow_add' => true,
-                'allow_delete' => true,
-                'by_reference' => false,
-            ])*/;
-
-
+            ->add('videos', TextType::class, ['mapped' => false,]);
         ;
 
     }

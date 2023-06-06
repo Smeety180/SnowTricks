@@ -36,6 +36,7 @@ class CommentaireType extends AbstractType
                 'choice_label' => 'nom', // Remplacez 'name' par la propriété de Figure que vous souhaitez afficher
             ])*/
         ;
+        
     }
 
     public function configureOptions(OptionsResolver $resolver): void

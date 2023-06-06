@@ -6,7 +6,9 @@ namespace App\Controller;
 use App\Entity\Figure;
 use App\Repository\FigureRepository;
 use App\Form\CommentaireType;
-use Knp\Component\Pager\PaginatorInterface;// Nous appelons le bundle KNP Paginator
+use Knp\Component\Pager\PaginatorInterface;
+
+// Nous appelons le bundle KNP Paginator
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,13 +32,14 @@ class PresentationFigure extends AbstractController
 
 
         // Pagination
-
+        $dql = "SELECT c FROM App\Entity\Commentaire c WHERE c.figure = :figure ORDER BY c.dateMsg DESC";
+        $query = $entityManager->createQuery($dql)->setParameter('figure', $figure);
         $pagination = $paginator->paginate(
-        $figureRepository->paginationQuery(),
-        $request->query->get('page', 1),
-            2
+            $query,
+            $request->query->get('page', 1),
+            10
         );
-
+        // Pagination
 
         if ($form->isSubmitted() && $form->isValid()) {
             // Traitement du formulaire
