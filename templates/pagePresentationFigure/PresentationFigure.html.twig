@@ -2,8 +2,21 @@
 
 
 {% block body %}
+    <div class="text-right">
+        <div style="padding-top: 5rem">
+            {% if is_granted('ROLE_USER') and figure is not null and figure.user == app.user %}
+                <a class="modifFigure" href="{{ path('app_figure_edit', {'id': figure.id}) }}" style="color: black; text-decoration: none">Modifier 🖊️</a>
+            {% endif %}
+            {% if is_granted('ROLE_USER') and figure is not null and figure.user == app.user %}
+                <a class="suprimerFigure" href="{{ path('app_figure_delete', {'id': figure.id}) }}" methods="POST" style="color: black; text-decoration: none">Supprimer 🗑️</a>
+            {% endif %}
+        </div>
+    </div>
 
     <h1 class="presentation"> Présentation de la figure : {{ figure.nom }}</h1>
+
+
+
 
 
     <div class="container groupeDesc">
@@ -13,7 +26,7 @@
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Frijole&display=swap" rel="stylesheet">
 
-            <h1 class="titreFigure"> Figure {{ figure.nom }}</h1>
+            <h1 class="titreFigure"> Figure : {{ figure.nom }}</h1>
 
             <!--Caroussel-->
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -31,7 +44,7 @@
                         {% if figure.images is not empty %}
                             {% for image in figure.images %}
                                 <div class="carousel-item {% if loop.first %}active{% endif %}">
-                                    <img src="{{ asset('uploads/images/' ~ image.nomDeFichier) }}" class="card-img-top" alt="...">
+                                    <img src="{{ asset('uploads/images/' ~ image.nomDeFichier) }}" class="card-img-top " alt="...">
                                 </div>
                             {% endfor %}
                         {% else %}
@@ -69,28 +82,19 @@
             <h1 class="textDesc"> Description :</h1>
             <div class="textDesc2">
                 {{ figure.description }}
+                <!-- vidéos  -->
+                <div class="">
+                    <h1 style=" font-family: 'Frijole', cursive; margin-top: 25rem">Video : </h1>
+                    {% for video in figure.videos %}
+                        <iframe width="560" height="315" src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    {% endfor %}
+                </div>
+                <!-- vidéos  -->
             </div>
         </div>
     </div>
-    <div class="container">
-     <h1 style=" font-family: 'Frijole', cursive; ">Video : </h1>
-    {% for video in figure.videos %}
-        <iframe width="560" height="315" src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    {% endfor %}
-    </div>
-<div>
-    <div>
-        {% if is_granted('ROLE_USER') and figure is not null and figure.user == app.user %}
-            <a class="modifFigure" href="{{ path('app_figure_edit', {'id': figure.id}) }}" style="color: black; text-decoration: none">Modifier 🖊️</a>
-        {% endif %}
-    </div>
 
-    <div>
-        {% if is_granted('ROLE_USER') and figure is not null and figure.user == app.user %}
-            <a class="suprimerFigure" href="{{ path('app_figure_delete', {'id': figure.id}) }}" methods="POST" style="color: black; text-decoration: none">Supprimer 🗑️</a>
-        {% endif %}
-    </div>
-</div>
+
 
 
     <h1 class="echange" style="font-family: 'Frijole', cursive;">Échange de la communauté</h1>

@@ -24,6 +24,7 @@ class CommentaireType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Écrivez votre commentaire ici...',
+
                 ],
             ])
 

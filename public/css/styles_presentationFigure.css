@@ -50,6 +50,12 @@
     margin: 0 12rem
 }
 
+.text-right {
+    text-align: right;
+    margin-right: -20rem; /* Ajustez la valeur selon vos besoins */
+}
+
+
 .btnEnvoiMsg {
     display: flex;
     justify-content: space-around;

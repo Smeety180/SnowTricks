@@ -308,3 +308,17 @@ a.inscriptionFooter:hover {
     margin: 0 0 0 1rem;
 }
 /*Mot de passe oubliée*/
+
+/*home*/
+.cropped-image {
+    max-width: 100%;
+    max-height: 200px; /* Ajustez la valeur selon vos besoins */
+    object-fit: cover;
+}
+
+.crop-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*home*/

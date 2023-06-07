@@ -24,7 +24,7 @@
                     {% if figure.images is not empty %}
                         {% for image in figure.images %}
                             <div class="carousel-item {% if loop.first %}active{% endif %}">
-                                <img src="{{ asset('uploads/images/' ~ image.nomDeFichier) }}" class="card-img-top" alt="...">
+                                <img src="{{ asset('uploads/images/' ~ image.nomDeFichier) }}" class="card-img-top cropped-image" alt="...">
                             </div>
                         {% endfor %}
                     {% else %}
@@ -35,7 +35,7 @@
 
 
                     <div class="card-body">
-                        <h5 class="card-title1 no-link-style">
+                        <h5 class="card-title1 no-link-style crop-text">
                             {{ figure.nom }}
                         </h5>
                     </div>
