@@ -6,23 +6,41 @@
     font-family: 'Frijole', cursive;
 }
 
-.groupeDesc {
-    justify-content: space-between;
-    display: flex;
-    padding-top: 10rem;
+.desciptionPageFigure {
+    text-align: center;
+    margin:10rem;
 }
 
 .carousel{
     width: 500px;
+    margin: auto;
 }
+
+.video {
+    text-align: center;
+    margin: auto;
+    font-family: 'Frijole', cursive;
+}
+.imageVideoFigure {
+    display:flex;
+}
+
+@media screen and (max-width: 1200px) {
+    .imageVideoFigure {
+    display:contents;
+    }
+}
+
 
 .titreFigure {
     font-family: 'Frijole', cursive;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .textDesc {
     font-family: 'Frijole', cursive;
-    padding-left: 12rem;
 }
 
 
@@ -46,14 +64,12 @@
     margin-top:3rem;
 }
 
-.textDesc2 {
-    margin: 0 12rem
+.text-right {
+    justify-content: flex-start;
+    display: flex;
+    padding-top:5rem;
 }
 
-.text-right {
-    text-align: right;
-    margin-right: -20rem; /* Ajustez la valeur selon vos besoins */
-}
 
 
 .btnEnvoiMsg {
@@ -90,16 +106,14 @@
 }
 
 .echangeUser{
-    width: 66rem;
-    height: 14rem;
     border: none;
     background-color: #D9D9D9;
     border-radius: 10px;
     margin-top: 10rem;
+    height:150px;
 }
 @media screen and (max-width: 1200px) {
     .echangeUser {
-        width: 33rem;
         height: 7rem;
     }
 }

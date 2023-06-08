@@ -34,12 +34,14 @@ text-align:center;
     background-color: #D9D9D9;
     border-radius: 10px;
     resize: auto;
+    height: 15rem;
+    width: 100%;
 }
 
 .groupeDesciption {
     background-color: #D9D9D9;
     border-radius: 10px;
-
+    width: 100%;
 }
 
 .nomDesciption{
@@ -70,11 +72,11 @@ text-align:center;
 }
 
 .inputVideo {
-    width: 20rem;
     height: 2rem;
     border: none;
     background-color: #D9D9D9;
     border-radius: 10px;
+    width: 100%;
 }
 
 .btnDivEnvoi {
