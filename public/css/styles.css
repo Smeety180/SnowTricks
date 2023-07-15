@@ -8,6 +8,10 @@
 
 .navbar {
     background-color: #0D1321;
+    position:sticky;
+    top: 0;
+    z-index:9999;
+    height:6rem;
 }
 
 .TitleNavbar {
